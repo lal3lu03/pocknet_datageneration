@@ -155,6 +155,73 @@ def get_residue_properties(residue_name):
     return NON_STANDARD_PROPERTIES['UNK']
 
 
+# Mapping from internal residue property names to P2Rank feature names
+PROPERTY_NAME_MAP = {
+    'hydrophobic': 'hydrophobic',
+    'hydrophilic': 'hydrophilic',
+    'hydropathy': 'hydrophatyIndex',
+    'aliphatic': 'aliphatic',
+    'aromatic': 'aromatic',
+    'sulfur': 'sulfur',
+    'hydroxyl': 'hydroxyl',
+    'basic': 'basic',
+    'acidic': 'acidic',
+    'amide': 'amide',
+    'pos_charge': 'posCharge',
+    'neg_charge': 'negCharge',
+    'h_donor': 'hBondDonor',
+    'h_acceptor': 'hBondAcceptor',
+    'h_donor_acceptor': 'hBondDonorAcceptor',
+    'polar': 'polar',
+    'ionizable': 'ionizable'
+}
+
+# Ordered list of feature columns matching P2Rank vectorsTrain.csv
+P2RANK_FEATURE_COLUMNS = [
+    'chem.hydrophobic',
+    'chem.hydrophilic',
+    'chem.hydrophatyIndex',
+    'chem.aliphatic',
+    'chem.aromatic',
+    'chem.sulfur',
+    'chem.hydroxyl',
+    'chem.basic',
+    'chem.acidic',
+    'chem.amide',
+    'chem.posCharge',
+    'chem.negCharge',
+    'chem.hBondDonor',
+    'chem.hBondAcceptor',
+    'chem.hBondDonorAcceptor',
+    'chem.polar',
+    'chem.ionizable',
+    'chem.atoms',
+    'chem.atomDensity',
+    'chem.atomC',
+    'chem.atomO',
+    'chem.atomN',
+    'chem.hDonorAtoms',
+    'chem.hAcceptorAtoms',
+    'volsite.vsAromatic',
+    'volsite.vsCation',
+    'volsite.vsAnion',
+    'volsite.vsHydrophobic',
+    'volsite.vsAcceptor',
+    'volsite.vsDonor',
+    'protrusion.protrusion',
+    'bfactor.bfactor',
+    'atom_table.apRawValids',
+    'atom_table.apRawInvalids',
+    'atom_table.atomicHydrophobicity'
+]
+
+# Final column order including metadata and class label
+COLUMN_ORDER = [
+    'file_name', 'x', 'y', 'z',
+    'chain_id', 'residue_number', 'residue_name'
+] + P2RANK_FEATURE_COLUMNS + ['class']
+
+
 # Donor/acceptor atoms (partial)
 DONOR_ATOMS = {'N', 'NH1', 'NH2', 'NE', 'NE1', 'NE2', 'ND1', 'ND2', 'NZ', 'OG', 'OG1', 'OH'}
 ACCEPTOR_ATOMS = {'O', 'OD1', 'OD2', 'OE1', 'OE2', 'OG', 'OG1', 'OH', 'NE2', 'ND1', 'ND2', 'SG'}
@@ -691,8 +758,9 @@ class Protein:
         for sas_point in self.sas_points:
             point_coord = sas_point.get_coord()
             
-            # Initialize features dictionary
-            features = {
+            # Initialize features dictionary with zeros in P2Rank feature order
+            features = {col: 0.0 for col in P2RANK_FEATURE_COLUMNS}
+            features.update({
                 'file_name': self.file_name,
                 'x': sas_point.x,
                 'y': sas_point.y,
@@ -701,7 +769,7 @@ class Protein:
                 'residue_number': -1,
                 'residue_name': 'UNK',
                 'class': 0  # Default class (not a binding site)
-            }
+            })
             
             # Add residue information if available
             if sas_point.nearest_residue:
@@ -730,10 +798,12 @@ class Protein:
                 features['chem.atoms'] = len(nearby_atoms)
                 features['chem.atomDensity'] = len(nearby_atoms) / volume if volume > 0 else 0
                 
-                # Element-specific densities
+                # Element-specific densities (only keep elements used by P2Rank)
                 for element in ['C', 'O', 'N', 'S', 'P']:
                     count = atom_counts.get(element, 0)
-                    features[f'chem.atom{element}'] = count / volume if volume > 0 else 0
+                    key = f'chem.atom{element}'
+                    if key in features:
+                        features[key] = count / volume if volume > 0 else 0
                 
                 # H-bond donor/acceptor atoms
                 donor_atoms = sum(1 for atom in nearby_atoms if atom.is_donor)
@@ -825,7 +895,10 @@ class Protein:
             # Normalize by total weights
             total_weight = sum(residue_weights.values()) if residue_weights else 1.0
             for prop, value in property_sums.items():
-                features[f'chem.{prop}'] = value / total_weight
+                mapped = PROPERTY_NAME_MAP.get(prop, prop)
+                key = f'chem.{mapped}'
+                if key in features:
+                    features[key] = value / total_weight
             
             # --- Volumetric site features ---
             # These are derived from the chemical features
@@ -846,14 +919,12 @@ class Protein:
                 # The fewer atoms nearby, the more the point protrudes from the protein
                 features['protrusion.protrusion'] = protrusion_radius * 10.0 / (1.0 + len(atoms_in_protrusion_sphere))
                 
-                # Calculate distance to the protein "center of mass"
+                # Calculate distance to the protein "center of mass" (not stored in final features)
                 if self.atoms:
                     protein_center = np.mean([atom.get_coord() for atom in self.atoms], axis=0)
-                    dist_to_center = np.linalg.norm(point_coord - protein_center)
-                    features['protrusion.distanceToCenter'] = dist_to_center
+                    _ = np.linalg.norm(point_coord - protein_center)
             else:
                 features['protrusion.protrusion'] = protrusion_radius * 10.0
-                features['protrusion.distanceToCenter'] = 0.0
             
             # --- B-factor features ---
             if nearby_atoms:
@@ -897,8 +968,9 @@ class Protein:
             features['class'] = 1 if point.is_binding_site else 0
             features_dicts.append(features)
         
-        # Convert to DataFrame
+        # Convert to DataFrame and enforce column order
         df = pd.DataFrame(features_dicts)
+        df = df.reindex(columns=COLUMN_ORDER)
         
         # Ensure output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -1094,6 +1166,7 @@ def combine_features(output_dir):
     
     # Combine all features and write to a single file
     combined_df = pd.concat(dfs, ignore_index=True)
+    combined_df = combined_df.reindex(columns=COLUMN_ORDER)
     combined_output_path = os.path.join(output_dir, "vectorsTrain.csv")
     combined_df.to_csv(combined_output_path, index=False)
     
