@@ -22313,3 +22313,22 @@ AttributeError: 'Protein' object has no attribute 'ligands'
 2025-05-25 16:08:13,584 - ProteinFeatureExtractor - INFO - Chain distribution: {'A': 1354573, 'B': 215572, 'C': 36206, ' ': 24104, 'X': 14541, 'N': 7638, 'O': 6393, 'G': 4403, 'E': 959, 'H': 564, 'D': 392, 'Y': 273, 'L': 170, 'S': 139, 'J': 117, 'I': 56}
 2025-05-25 16:08:13,585 - ProteinFeatureExtractor - INFO - Top 5 residue types: {'GLU': 190162, 'LYS': 178811, 'ARG': 152608, 'ASP': 133198, 'GLN': 99623}
 2025-05-25 16:08:15,932 - ProteinFeatureExtractor - INFO - Analysis reports saved to /system/user/studentwork/hageneder/MSC/Practical_work/PockNet_datageneration/output/chen11/analysis
+2025-06-30 19:56:12,011 - ProteinFeatureExtractor - INFO - Processing dataset: test_single.ds
+2025-06-30 19:56:12,011 - ProteinFeatureExtractor - INFO - Output directory: out_test
+2025-06-30 19:56:12,011 - ProteinFeatureExtractor - INFO - Parameters: probe_radius=1.4, point_density=3.0, neighborhood_radius=8.0, protrusion_radius=10.0
+2025-06-30 19:56:12,012 - ProteinFeatureExtractor - INFO - Using 24 threads for processing
+2025-06-30 19:56:12,012 - ProteinFeatureExtractor - INFO - Using BioPython for SAS point generation
+2025-06-30 19:56:12,013 - ProteinFeatureExtractor - INFO - Found 1 PDB files in the dataset
+2025-06-30 19:56:12,251 - ProteinFeatureExtractor - INFO - Parsed 969 protein atoms and 1 ligands from a.001.001.001_1s69a.pdb
+2025-06-30 19:56:12,251 - ProteinFeatureExtractor - INFO - Ligands found: HEM(A:125)
+2025-06-30 19:56:12,251 - ProteinFeatureExtractor - INFO - Generating SAS points for a.001.001.001_1s69a.pdb using BioPython
+2025-06-30 19:56:12,524 - ProteinFeatureExtractor - INFO - Generated 4039 SAS points for a.001.001.001_1s69a.pdb using BioPython
+2025-06-30 19:56:12,524 - ProteinFeatureExtractor - INFO - Calculating features for 4039 SAS points in a.001.001.001_1s69a.pdb
+2025-06-30 19:56:28,576 - ProteinFeatureExtractor - INFO - Classifying binding sites for a.001.001.001_1s69a.pdb with threshold 4.0Å
+2025-06-30 19:56:28,576 - ProteinFeatureExtractor - INFO - Found 1 ligands in a.001.001.001_1s69a.pdb
+2025-06-30 19:56:29,284 - ProteinFeatureExtractor - INFO - Classified 148 out of 4039 SAS points (3.66%) as binding sites in a.001.001.001_1s69a.pdb
+2025-06-30 19:56:29,579 - ProteinFeatureExtractor - INFO - Exported 4039 feature rows to out_test/a.001.001.001_1s69a.pdb_features.csv
+2025-06-30 19:56:29,582 - ProteinFeatureExtractor - INFO - Processed a.001.001.001_1s69a.pdb in 17.34 seconds
+2025-06-30 19:56:29,591 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-06-30 19:56:29,744 - ProteinFeatureExtractor - INFO - Combined 4039 rows into out_test/vectorsTrain.csv
+2025-06-30 19:56:29,745 - ProteinFeatureExtractor - INFO - Feature extraction complete. Combined features saved to out_test/vectorsTrain.csv
