@@ -48,6 +48,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ProteinFeatureExtractor")
 
+# ---------------------------------------------------------------------------
+# Parameter defaults below are aligned with the official P2Rank implementation
+# (see p2rank/distro/config/default.groovy).  Notably:
+#   * neighbourhood_radius  -> 6.0 Å
+#   * solvent probe radius  -> 1.6 Å
+#   * tessellation level 2  -> approximated here by point_density=3.0 or
+#                              sr_n_points=100 when using BioPython
+#   * atom_table_feat_pow   -> 2 with sign discarded during exponentiation
+# These settings ensure feature vectors match P2Rank defaults.
+
 # BioPython imports for SASA calculation
 try:
     from Bio.PDB import PDBParser, Selection, NeighborSearch
@@ -695,7 +705,7 @@ class Protein:
             ligand_info = [f"{l.name}({l.chain_id}:{l.residue_number})" for l in self.ligands]
             logger.info(f"Ligands found: {', '.join(ligand_info)}")
     
-    def generate_sas_points(self, probe_radius=1.4, density=3.0):
+    def generate_sas_points(self, probe_radius=1.6, density=3.0):
         """
         Generate Solvent Accessible Surface points.
         
@@ -703,7 +713,7 @@ class Protein:
         For production use, consider FreeSASA, MSMS, or BioPython's DSSP/HSExposure.
         
         Args:
-            probe_radius (float): Radius of the solvent probe (typically 1.4Å for water)
+            probe_radius (float): Radius of the solvent probe (P2Rank default 1.6Å)
             density (float): Density of points (higher = more points, slower calculation)
         """
         logger.info(f"Generating SAS points for {self.file_name}")
@@ -791,7 +801,7 @@ class Protein:
         self.sas_points = sas_points
         logger.info(f"Generated {len(self.sas_points)} SAS points for {self.file_name}")
     
-    def generate_biopython_sas_points(self, probe_radius=1.4, sr_n_points=100):
+    def generate_biopython_sas_points(self, probe_radius=1.6, sr_n_points=100):
         """
         Generate Solvent Accessible Surface points using BioPython.
         
@@ -799,7 +809,7 @@ class Protein:
         and then generates surface points where the SASA value is significant.
         
         Args:
-            probe_radius (float): Radius of the solvent probe (typically 1.4Å for water)
+            probe_radius (float): Radius of the solvent probe (P2Rank default 1.6Å)
             sr_n_points (int): Number of points to use in the ShrakeRupley algorithm
         
         Returns:
@@ -984,7 +994,7 @@ class Protein:
             logger.error(traceback.format_exc())
             return False
 
-    def calculate_features(self, neighborhood_radius=4.0, protrusion_radius=10.0, atom_table_feat_pow=2.0):
+    def calculate_features(self, neighborhood_radius=6.0, protrusion_radius=10.0, atom_table_feat_pow=2.0):
         """Calculate P2Rank-like features for each SAS point using neighbourhood aggregation."""
         logger.info(
             f"Calculating features for {len(self.sas_points)} SAS points in {self.file_name}")
@@ -1011,8 +1021,7 @@ class Protein:
                 at = {h: 0.0 for h in ATOM_TABLE_HEADER}
             for h in ATOM_TABLE_HEADER:
                 val = float(at.get(h, 0.0))
-                sign = 1.0 if val >= 0 else -1.0
-                vec[f'atom_table.{h}'] = sign * (abs(val) ** atom_table_feat_pow)
+                vec[f'atom_table.{h}'] = abs(val) ** atom_table_feat_pow
 
             vec['bfactor.bfactor'] = atom.temp_factor
 
@@ -1346,9 +1355,9 @@ def main():
     parser.add_argument("output_dir", help="Directory to save the output files")
     
     # Optional arguments
-    parser.add_argument("--probe_radius", type=float, default=1.4, help="Solvent probe radius in Angstroms (default: 1.4)")
-    parser.add_argument("--point_density", type=float, default=0.1, help="Density of SAS points (default: 0.1)")
-    parser.add_argument("--neighborhood_radius", type=float, default=4.0, help="Radius for feature calculation (default: 4.0)")
+    parser.add_argument("--probe_radius", type=float, default=1.6, help="Solvent probe radius in Angstroms (default: 1.6)")
+    parser.add_argument("--point_density", type=float, default=3.0, help="SAS point density approximating P2Rank tessellation=2")
+    parser.add_argument("--neighborhood_radius", type=float, default=6.0, help="Radius for feature calculation (default: 6.0)")
     parser.add_argument("--protrusion_radius", type=float, default=10.0, help="Radius for protrusion calculation (default: 10.0)")
     parser.add_argument("--atom_table_feat_pow", type=float, default=2.0,
                         help="Power for atom table features (default: 2.0)")
