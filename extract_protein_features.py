@@ -154,6 +154,240 @@ def get_residue_properties(residue_name):
     logger.warning(f"Unknown residue {residue_name}, treating as UNK")
     return NON_STANDARD_PROPERTIES['UNK']
 
+# ===========================================================================
+# P2Rank feature tables and chemistry defaults
+# ---------------------------------------------------------------------------
+# These tables are loaded from the CSV files shipped with the original P2Rank
+# project. They are required in order to compute features identical to P2Rank.
+
+CHEM_HEADER = [
+    "hydrophobic", "hydrophilic", "hydrophatyIndex", "aliphatic", "aromatic",
+    "sulfur", "hydroxyl", "basic", "acidic", "amide", "posCharge",
+    "negCharge", "hBondDonor", "hBondAcceptor", "hBondDonorAcceptor",
+    "polar", "ionizable", "atoms", "atomDensity", "atomC", "atomO", "atomN",
+    "hDonorAtoms", "hAcceptorAtoms"
+]
+
+VOLSITE_HEADER = [
+    "vsAromatic", "vsCation", "vsAnion", "vsHydrophobic", "vsAcceptor", "vsDonor"
+]
+
+ATOM_TABLE_HEADER = ["apRawValids", "apRawInvalids", "atomicHydrophobicity"]
+
+# --- Chemical defaults (mirroring ChemDefaults.groovy) ---
+HYDROPHOBIC = {
+    "PHE":1, "ILE":1, "TRP":1, "GLY":1, "LEU":1, "VAL":1, "MET":1,
+    "ALA":1, "CYS":1, "TYR":1,
+    "ARG":-1, "ASN":-1, "ASP":-1, "GLN":-1, "GLU":-1, "LYS":-1, "PRO":-1
+}
+
+HYDROPHATY_INDEX = {
+    "ALA":1.8, "ARG":-4.5, "ASN":-3.5, "ASP":-3.5, "CYS":2.5, "GLU":-3.5,
+    "GLN":-3.5, "GLY":-0.4, "HIS":-3.2, "ILE":4.5, "LEU":3.8, "LYS":-3.9,
+    "MET":1.9, "PHE":2.8, "PRO":-1.6, "SER":-0.8, "THR":-0.7, "TRP":-0.9,
+    "TYR":-1.3, "VAL":4.2
+}
+
+ALIPHATIC = {"ALA":1, "LEU":1, "ILE":1, "VAL":1, "GLY":1, "PRO":1}
+AROMATIC = {"PHE":1, "TRP":1, "TYR":1}
+SULFUR = {"CYS":1, "MET":1}
+HYDROXYL = {"SER":1, "THR":1}
+BASIC = {"ARG":3, "LYS":2, "HIS":1}
+ACIDIC = {"ASP":1, "GLU":1}
+AMIDE = {"ASN":1, "GLN":1}
+CHARGE = {"ASP":-1, "GLU":-1, "ARG":1, "HIS":1, "LYS":1}
+POLAR = {"ARG":1,"ASN":1,"ASP":1,"GLN":1,"GLU":1,"HIS":1,"LYS":1,"SER":1,
+         "THR":1,"TYR":1,"CYS":1}
+IONIZABLE = {"ASP":1,"GLU":1,"HIS":1,"LYS":1,"ARG":1,"CYS":1,"TYR":1}
+HB_DONOR = {"ARG":1,"LYS":1,"TRY":1}
+HB_ACCEPTOR = {"ASP":1,"GLU":1}
+HB_DONOR_ACCEPTOR = {"ASN":1,"GLN":1,"HIS":1,"SER":1,"THR":1,"TYR":1}
+
+AACODES = [
+    "ALA","ARG","ASN","ASP","CYS","GLU","GLN","GLY","HIS","ILE",
+    "LEU","LYS","MET","PHE","PRO","SER","THR","TRP","TYR","VAL","STP"
+]
+
+def _aa_default(code):
+    vec = {h:0.0 for h in CHEM_HEADER}
+    vec["hydrophobic"] = max(HYDROPHOBIC.get(code,0),0)
+    vec["hydrophilic"] = max(-HYDROPHOBIC.get(code,0),0)
+    vec["hydrophatyIndex"] = HYDROPHATY_INDEX.get(code,0.0)
+    vec["aliphatic"] = ALIPHATIC.get(code,0)
+    vec["aromatic"] = AROMATIC.get(code,0)
+    vec["sulfur"] = SULFUR.get(code,0)
+    vec["hydroxyl"] = HYDROXYL.get(code,0)
+    vec["basic"] = BASIC.get(code,0)
+    vec["acidic"] = ACIDIC.get(code,0)
+    vec["amide"] = AMIDE.get(code,0)
+    charge = CHARGE.get(code,0)
+    if charge >= 0:
+        vec["posCharge"] = charge
+    else:
+        vec["negCharge"] = -charge
+    vec["hBondDonor"] = HB_DONOR.get(code,0)
+    vec["hBondAcceptor"] = HB_ACCEPTOR.get(code,0)
+    vec["hBondDonorAcceptor"] = HB_DONOR_ACCEPTOR.get(code,0)
+    vec["polar"] = POLAR.get(code,0)
+    vec["ionizable"] = IONIZABLE.get(code,0)
+    return vec
+
+AA_DEFAULTS = {code:_aa_default(code) for code in AACODES}
+
+ATOMIC_TABLE = {}
+VOLSITE_TABLE = {}
+
+def load_property_tables():
+    """Load atomic-properties.csv and volsite-atomic-properties.csv."""
+    base_dir = os.path.dirname(__file__)
+    atomic_path = os.path.join(base_dir, "atomic-properties.csv")
+    volsite_path = os.path.join(base_dir, "volsite-atomic-properties.csv")
+    if not ATOMIC_TABLE:
+        import csv
+        with open(atomic_path, newline="") as f:
+            reader = csv.DictReader(f, skipinitialspace=True)
+            for row in reader:
+                name = row["atomName"].strip()
+                ATOMIC_TABLE[name] = {
+                    k: float(row[k]) for k in ATOM_TABLE_HEADER if k in row
+                }
+    if not VOLSITE_TABLE:
+        import csv
+        with open(volsite_path, newline="") as f:
+            reader = csv.DictReader(f, skipinitialspace=True)
+            for row in reader:
+                name = row["atomName"].strip()
+                VOLSITE_TABLE[name] = {
+                    "vsAromatic": float(row["vsAromatic"]),
+                    "vsCation": float(row["vsCation"]),
+                    "vsAnion": float(row["vsAnion"]),
+                    "vsHydrophobic": float(row["vsHydrophobic"]),
+                    "vsAcceptor": float(row["vsAcceptor"]),
+                    "vsDonor": float(row["vsDonor"])
+                }
+
+load_property_tables()
+
+
+def volsite_atom_properties(atom_name: str, residue_name: str):
+    """Return VolSite pharmacophore flags for given atom/residue."""
+    key = f"{residue_name}.{atom_name}"
+    props = VOLSITE_TABLE.get(key)
+    if props is not None:
+        return props
+
+    name = atom_name.upper()
+    res = residue_name.upper() if residue_name else ""
+
+    atm = {
+        "vsAromatic": 0.0,
+        "vsCation": 0.0,
+        "vsAnion": 0.0,
+        "vsHydrophobic": 0.0,
+        "vsAcceptor": 0.0,
+        "vsDonor": 0.0,
+    }
+
+    def set_prop(prop):
+        atm[prop] = 1.0
+        return atm
+
+    if name == "C":
+        return set_prop("vsHydrophobic")
+    if name in {"CA", "CB"} and res != "CA":
+        return set_prop("vsHydrophobic")
+    if name == "CD" and res in {"ARG", "GLN", "GLU", "LYS", "PRO"}:
+        return set_prop("vsHydrophobic")
+    if name == "CD1":
+        if res in {"ILE", "LEU"}:
+            return set_prop("vsHydrophobic")
+        elif res in {"PHE", "TRP", "TYR"}:
+            return set_prop("vsAromatic")
+    if name == "CD2":
+        if res == "LEU":
+            return set_prop("vsHydrophobic")
+        elif res in {"PHE", "TRP", "TYR"}:
+            return set_prop("vsAromatic")
+        elif res in {"HIS", "HID", "HIE"}:
+            atm["vsAromatic"] = 1.0
+            atm["vsHydrophobic"] = 0.0
+            return atm
+    if name == "CE" and res in {"LYS", "MET"}:
+        return set_prop("vsHydrophobic")
+    if name == "CE1":
+        if res in {"HIS", "HID", "HIE"}:
+            atm["vsAromatic"] = 1.0
+            atm["vsHydrophobic"] = 0.0
+            return atm
+        elif res in {"PHE", "TYR"}:
+            return set_prop("vsAromatic")
+    if name == "CE2" and res in {"PHE", "TRP", "TYR"}:
+        return set_prop("vsAromatic")
+    if name == "CE3" and res == "TRP":
+        return set_prop("vsAromatic")
+    if name == "CG":
+        if res in {"ARG", "ASN", "ASP", "CYS", "CYX", "GLN", "GLU", "LEU", "LYS", "MET", "PRO"}:
+            return set_prop("vsHydrophobic")
+        elif res in {"HIS", "HID", "HIE", "PHE", "TRP", "TYR"}:
+            return set_prop("vsAromatic")
+    if (name == "CG1" and res in {"ILE", "VAL"}) or (name == "CG2" and res in {"ILE", "THR", "VAL"}):
+        return set_prop("vsHydrophobic")
+    if name == "CH2" and res == "TRP":
+        return set_prop("vsAromatic")
+    if name == "CZ":
+        if res == "ARG":
+            return set_prop("vsHydrophobic")
+        elif res in {"PHE", "TYR"}:
+            return set_prop("vsAromatic")
+    if name in {"CZ2", "CZ3"} and res == "TRP":
+        return set_prop("vsAromatic")
+    if name == "N":
+        return set_prop("vsDonor")
+    if name == "ND1" and res in {"HIS", "HID", "HIE"}:
+        atm["vsDonor"] = 1.0
+        atm["vsAcceptor"] = 1.0
+        return atm
+    if name == "ND2" and res == "ASN":
+        return set_prop("vsDonor")
+    if name == "NE" and res in {"ARG", "LYS"}:
+        return set_prop("vsCation")
+    if name == "NE1" and res == "TRP":
+        return set_prop("vsDonor")
+    if name == "NE2":
+        if res == "GLN":
+            return set_prop("vsDonor")
+        elif res in {"HIS", "HID", "HIE"}:
+            atm["vsDonor"] = 1.0
+            atm["vsAcceptor"] = 1.0
+            return atm
+    if (name in {"NH1", "NH2"} and res == "ARG") or (name == "NZ" and res == "LYS"):
+        return set_prop("vsCation")
+    if name == "O":
+        return set_prop("vsAcceptor")
+    if name in {"OD1", "OD2"} and res == "ASP":
+        return set_prop("vsAnion")
+    if name == "OD1" and res == "ASN":
+        return set_prop("vsAcceptor")
+    if name == "OE1" and res == "GLN":
+        return set_prop("vsAcceptor")
+    if name in {"OE1", "OE2"} and res == "GLU":
+        return set_prop("vsAnion")
+    if (name == "OG" and res == "SER") or (name == "OG1" and res == "THR") or (name == "OH" and res == "TYR"):
+        atm["vsDonor"] = 1.0
+        atm["vsAcceptor"] = 1.0
+        return atm
+    if name == "OXT":
+        return set_prop("vsAnion")
+    if name in {"SD", "SG"}:
+        if res in {"CYS", "CYX"}:
+            return set_prop("vsAcceptor")
+        elif res == "MET":
+            return set_prop("vsHydrophobic")
+    if name in {"FE", "MG", "MN", "ZN", "CO"}:
+        return set_prop("vsCation")
+
+    return atm
+
 
 # Donor/acceptor atoms (partial)
 DONOR_ATOMS = {'N', 'NH1', 'NH2', 'NE', 'NE1', 'NE2', 'ND1', 'ND2', 'NZ', 'OG', 'OG1', 'OH'}
@@ -220,6 +454,67 @@ class Atom:
         else:  # Assume it's a numpy array or similar
             other_coords = other
         return np.linalg.norm(self.get_coord() - other_coords)
+
+
+def p2rank_chem_vector(atom):
+    """Compute chemical feature vector for an atom using P2Rank logic."""
+    res = atom.residue_name
+    base = AA_DEFAULTS.get(res, {h:0.0 for h in CHEM_HEADER})
+    vec = base.copy()
+
+    # defaults for atom related counts
+    vec["atoms"] = 1
+    vec["atomDensity"] = 1
+    vec["atomC"] = 0
+    vec["atomO"] = 0
+    vec["atomN"] = 0
+    vec["hDonorAtoms"] = 0
+    vec["hAcceptorAtoms"] = 0
+
+    an = atom.atom_name
+
+    if res == "ARG" and an in {"NE","NH1","NH2"}:
+        vec["hDonorAtoms"] += 1
+    elif res == "ASN":
+        if an == "ND2":
+            vec["hDonorAtoms"] += 1
+        elif an == "OD1":
+            vec["hAcceptorAtoms"] += 1
+    elif res == "ASP" and an in {"OD1","OD2"}:
+        vec["hAcceptorAtoms"] += 1
+    elif res == "GLN":
+        if an == "NE2":
+            vec["hDonorAtoms"] += 1
+        elif an == "OE1":
+            vec["hAcceptorAtoms"] += 1
+    elif res == "GLU" and an in {"OE1","OE2"}:
+        vec["hAcceptorAtoms"] += 1
+    elif res == "HIS" and an in {"ND1","NE2"}:
+        vec["hDonorAtoms"] += 1
+        vec["hAcceptorAtoms"] += 1
+    elif res == "LYS" and an == "NZ":
+        vec["hDonorAtoms"] += 1
+    elif res == "SER" and an == "OG":
+        vec["hDonorAtoms"] += 1
+        vec["hAcceptorAtoms"] += 1
+    elif res == "THR" and an == "OG1":
+        vec["hDonorAtoms"] += 1
+        vec["hAcceptorAtoms"] += 1
+    elif res == "TRP" and an == "NE1":
+        vec["hDonorAtoms"] += 1
+    elif res == "TYR" and an == "OH":
+        vec["hDonorAtoms"] += 1
+        vec["hAcceptorAtoms"] += 1
+
+    # element based counters
+    if atom.element == "C" or an.startswith("C"):
+        vec["atomC"] = 1
+    elif atom.element == "O" or an.startswith("O"):
+        vec["atomO"] = 1
+    elif atom.element == "N" or an.startswith("N"):
+        vec["atomN"] = 1
+
+    return vec
 
 
 class SASPoint:
@@ -475,24 +770,23 @@ class Protein:
         #    indices = np.linspace(0, len(sas_points)-1, 10000, dtype=int)
         #    sas_points = [sas_points[i] for i in indices]
         
-        # Assign each SAS point to the nearest residue
+        # Assign each SAS point to the nearest atom and residue
         for sas_point in sas_points:
             point_coord = sas_point.get_coord()
-            
-            # Find the nearest residue
-            nearest_residue_key = None
-            min_residue_distance = float('inf')
-            
-            for residue_key, residue_atoms in self.residues.items():
-                # Calculate minimum distance to any atom in the residue
-                residue_distances = [atom.distance(point_coord) for atom in residue_atoms]
-                min_distance = min(residue_distances)
-                
-                if min_distance < min_residue_distance:
-                    min_residue_distance = min_distance
-                    nearest_residue_key = residue_key
-            
-            sas_point.nearest_residue = nearest_residue_key
+
+            nearest_atom = None
+            min_atom_dist = float('inf')
+            for atom in self.atoms:
+                dist = atom.distance(point_coord)
+                if dist < min_atom_dist:
+                    min_atom_dist = dist
+                    nearest_atom = atom
+
+            sas_point.nearest_atom = nearest_atom
+            if nearest_atom is not None:
+                sas_point.nearest_residue = (nearest_atom.chain_id, nearest_atom.residue_number)
+            else:
+                sas_point.nearest_residue = None
         
         self.sas_points = sas_points
         logger.info(f"Generated {len(self.sas_points)} SAS points for {self.file_name}")
@@ -566,15 +860,22 @@ class Protein:
                         
                         # Create a SAS point
                         sas_point = SASPoint(point[0], point[1], point[2], normal[0], normal[1], normal[2])
-                        
-                        # Store a reference to the originating atom
-                        sas_point.nearest_atom = atom
-                        
-                        # Get residue information
+
                         residue = atom.get_parent()
                         chain = residue.get_parent()
                         chain_id = chain.id
                         residue_number = residue.id[1]
+
+                        custom_atom = Atom(
+                            atom.serial_number if hasattr(atom, 'serial_number') else -1,
+                            atom.get_name(), residue.get_resname(), chain_id, residue_number,
+                            coord[0], coord[1], coord[2],
+                            float(atom.get_occupancy() or 0.0), float(atom.get_bfactor() or 0.0),
+                            atom.element
+                        )
+                        sas_point.nearest_atom = custom_atom
+
+                        # Get residue information
                         
                         # Set nearest residue
                         sas_point.nearest_residue = (chain_id, residue_number)
@@ -598,15 +899,20 @@ class Protein:
                             
                             # Create a SAS point
                             sas_point = SASPoint(point[0], point[1], point[2], normal[0], normal[1], normal[2])
-                            
-                            # Store a reference to the originating atom
-                            sas_point.nearest_atom = atom
-                            
-                            # Get residue information
+
                             residue = atom.get_parent()
                             chain = residue.get_parent()
                             chain_id = chain.id
                             residue_number = residue.id[1]
+
+                            custom_atom = Atom(
+                                atom.serial_number if hasattr(atom, 'serial_number') else -1,
+                                atom.get_name(), residue.get_resname(), chain_id, residue_number,
+                                coord[0], coord[1], coord[2],
+                                float(atom.get_occupancy() or 0.0), float(atom.get_bfactor() or 0.0),
+                                atom.element
+                            )
+                            sas_point.nearest_atom = custom_atom
                             
                             # Set nearest residue
                             sas_point.nearest_residue = (chain_id, residue_number)
@@ -677,210 +983,86 @@ class Protein:
             import traceback
             logger.error(traceback.format_exc())
             return False
-    
-    def calculate_features(self, neighborhood_radius=8.0, protrusion_radius=10.0):
-        """
-        Calculate features for each SAS point.
-        
-        Args:
-            neighborhood_radius (float): Radius around the SAS point to consider for feature calculation
-            protrusion_radius (float): Radius to use for protrusion calculations
-        """
-        logger.info(f"Calculating features for {len(self.sas_points)} SAS points in {self.file_name}")
-        
+
+    def calculate_features(self, neighborhood_radius=4.0, protrusion_radius=10.0, atom_table_feat_pow=2.0):
+        """Calculate P2Rank-like features for each SAS point using neighbourhood aggregation."""
+        logger.info(
+            f"Calculating features for {len(self.sas_points)} SAS points in {self.file_name}")
+
+        def weight_inv(dist):
+            w = 1.0 - dist / neighborhood_radius
+            return w if w > 0 else 0.0
+
+        # pre-compute atom feature vectors
+        atom_vectors = {}
+        for atom in self.atoms:
+            vec = {}
+            chem_vec = p2rank_chem_vector(atom)
+            for h in CHEM_HEADER:
+                vec[f'chem.{h}'] = chem_vec.get(h, 0.0)
+
+            key = f"{atom.residue_name}.{atom.atom_name}"
+            vs = volsite_atom_properties(atom.atom_name, atom.residue_name)
+            for h in VOLSITE_HEADER:
+                vec[f'volsite.{h}'] = float(vs.get(h, 0.0))
+
+            at = ATOMIC_TABLE.get(key)
+            if at is None:
+                at = {h: 0.0 for h in ATOM_TABLE_HEADER}
+            for h in ATOM_TABLE_HEADER:
+                val = float(at.get(h, 0.0))
+                sign = 1.0 if val >= 0 else -1.0
+                vec[f'atom_table.{h}'] = sign * (abs(val) ** atom_table_feat_pow)
+
+            vec['bfactor.bfactor'] = atom.temp_factor
+
+            atom_vectors[atom] = vec
+
         for sas_point in self.sas_points:
             point_coord = sas_point.get_coord()
-            
-            # Initialize features dictionary
+
+            neighbours = []
+            min_d = float('inf')
+            nearest_atom = None
+            for atom in self.atoms:
+                dist = atom.distance(point_coord)
+                if dist < min_d:
+                    min_d = dist
+                    nearest_atom = atom
+                if dist <= neighborhood_radius:
+                    neighbours.append((atom, dist))
+
             features = {
                 'file_name': self.file_name,
                 'x': sas_point.x,
                 'y': sas_point.y,
                 'z': sas_point.z,
-                'chain_id': 'UNK',
-                'residue_number': -1,
-                'residue_name': 'UNK',
-                'class': 0  # Default class (not a binding site)
+                'chain_id': nearest_atom.chain_id if nearest_atom else 'UNK',
+                'residue_number': nearest_atom.residue_number if nearest_atom else -1,
+                'residue_name': nearest_atom.residue_name if nearest_atom else 'UNK',
+                'class': 0
             }
-            
-            # Add residue information if available
-            if sas_point.nearest_residue:
-                chain_id, residue_number = sas_point.nearest_residue
-                features['chain_id'] = chain_id
-                features['residue_number'] = residue_number
-                
-                # Get residue name
-                if sas_point.nearest_residue in self.residues:
-                    features['residue_name'] = self.residues[sas_point.nearest_residue][0].residue_name
-            
-            # --- Chemical features ---
-            # Filter atoms within the neighborhood radius
-            nearby_atoms = [atom for atom in self.atoms if atom.distance(point_coord) < neighborhood_radius]
-            
-            if nearby_atoms:
-                # Basic atom counts and types
-                atom_counts = defaultdict(int)
-                for atom in nearby_atoms:
-                    atom_counts[atom.element] += 1
-                
-                # Sphere volume
-                volume = (4/3) * np.pi * neighborhood_radius**3
-                
-                # Atom density
-                features['chem.atoms'] = len(nearby_atoms)
-                features['chem.atomDensity'] = len(nearby_atoms) / volume if volume > 0 else 0
-                
-                # Element-specific densities
-                for element in ['C', 'O', 'N', 'S', 'P']:
-                    count = atom_counts.get(element, 0)
-                    features[f'chem.atom{element}'] = count / volume if volume > 0 else 0
-                
-                # H-bond donor/acceptor atoms
-                donor_atoms = sum(1 for atom in nearby_atoms if atom.is_donor)
-                acceptor_atoms = sum(1 for atom in nearby_atoms if atom.is_acceptor)
-                
-                features['chem.hDonorAtoms'] = donor_atoms / volume if volume > 0 else 0
-                features['chem.hAcceptorAtoms'] = acceptor_atoms / volume if volume > 0 else 0
-                
-                # Charge-related features
-                pos_charged_atoms = sum(1 for atom in nearby_atoms if atom.element in ['N', 'K', 'R'])
-                neg_charged_atoms = sum(1 for atom in nearby_atoms if atom.element in ['O', 'D', 'E'])
-                
-                features['chem.posChargedAtoms'] = pos_charged_atoms / volume if volume > 0 else 0
-                features['chem.negChargedAtoms'] = neg_charged_atoms / volume if volume > 0 else 0
-                
-                # Hydrophobic atoms
-                hydrophobic_atoms = sum(1 for atom in nearby_atoms if atom.element in ['C', 'S', 'F', 'CL', 'BR', 'I'])
-                features['chem.hydrophobicAtoms'] = hydrophobic_atoms / volume if volume > 0 else 0
-                
-                # Aromatic atoms - simplification, would need more context from the molecule structure
-                aromatic_atoms = sum(1 for atom in nearby_atoms if 
-                                    atom.residue_name in ['PHE', 'TYR', 'TRP', 'HIS'] and 
-                                    atom.element == 'C')
-                features['chem.aromaticAtoms'] = aromatic_atoms / volume if volume > 0 else 0
-            else:
-                # Set default values if no nearby atoms
-                features['chem.atoms'] = 0
-                features['chem.atomDensity'] = 0
-                for element in ['C', 'O', 'N', 'S', 'P']:
-                    features[f'chem.atom{element}'] = 0
-                features['chem.hDonorAtoms'] = 0
-                features['chem.hAcceptorAtoms'] = 0
-                features['chem.posChargedAtoms'] = 0
-                features['chem.negChargedAtoms'] = 0
-                features['chem.hydrophobicAtoms'] = 0
-                features['chem.aromaticAtoms'] = 0
-            
-            # --- Residue-based features ---
-            # Get nearby residues
-            nearby_residue_keys = set()
-            for atom in nearby_atoms:
-                residue_key = (atom.chain_id, atom.residue_number)
-                nearby_residue_keys.add(residue_key)
-            
-            # Calculate property sums from nearby residues
-            property_sums = defaultdict(float)
-            residue_weights = {}
 
-                # ← HERE: zero‐initialize all chem.<prop> keys
-            chemical_properties = [
-            'hydrophobic', 'hydrophilic', 'hydropathy', 'aliphatic', 'aromatic',
-            'sulfur', 'hydroxyl', 'basic', 'acidic', 'amide', 'pos_charge',
-            'neg_charge', 'h_donor', 'h_acceptor', 'h_donor_acceptor', 'polar', 'ionizable'
-            ]
-            for prop in chemical_properties:
-                features[f'chem.{prop}'] = 0.0
-            
-            for residue_key in nearby_residue_keys:
-                if residue_key not in self.residues:
-                    continue
+            agg = {f'chem.{h}': 0.0 for h in CHEM_HEADER}
+            for h in VOLSITE_HEADER:
+                agg[f'volsite.{h}'] = 0.0
+            for h in ATOM_TABLE_HEADER:
+                agg[f'atom_table.{h}'] = 0.0
+            agg['bfactor.bfactor'] = 0.0
 
+            for atom, dist in neighbours:
+                weight = weight_inv(dist)
+                vec = atom_vectors[atom]
+                for k, v in vec.items():
+                    agg[k] += v * weight
 
-                residue_name = self.residues[residue_key][0].residue_name
-                props = get_residue_properties(residue_name)  # handles mapping & UNK
+            prot_atoms = sum(1 for a in self.atoms if a.distance(point_coord) <= protrusion_radius)
+            agg['protrusion.protrusion'] = float(prot_atoms)
+            agg['chem.atoms'] = float(len(neighbours))
 
-                center = np.mean([a.get_coord() for a in self.residues[residue_key]], axis=0)
-                weight = 1.0 / (1.0 + np.linalg.norm(point_coord - center))
-                residue_weights[residue_key] = weight
+            for k, v in agg.items():
+                features[k] = v
 
-                for prop, val in props.items():
-                    property_sums[prop] += val * weight
-                
-                #residue_atoms = self.residues[residue_key]
-                #residue_name = residue_atoms[0].residue_name
-                
-                #if residue_name not in AA_PROPERTIES:
-                #    continue
-                
-                # Calculate distance-based weight
-                #residue_center = np.mean([atom.get_coord() for atom in residue_atoms], axis=0)
-                #distance = np.linalg.norm(point_coord - residue_center)
-                #weight = 1.0 / (1.0 + distance)
-                #residue_weights[residue_key] = weight
-                
-                # Add weighted properties
-                #for prop, value in AA_PROPERTIES[residue_name].items():
-                #    property_sums[prop] += value * weight
-            
-            # Normalize by total weights
-            total_weight = sum(residue_weights.values()) if residue_weights else 1.0
-            for prop, value in property_sums.items():
-                features[f'chem.{prop}'] = value / total_weight
-            
-            # --- Volumetric site features ---
-            # These are derived from the chemical features
-            features['volsite.vsAromatic'] = features.get('chem.aromaticAtoms', 0)
-            features['volsite.vsCation'] = features.get('chem.posChargedAtoms', 0)
-            features['volsite.vsAnion'] = features.get('chem.negChargedAtoms', 0)
-            features['volsite.vsHydrophobic'] = features.get('chem.hydrophobicAtoms', 0)
-            features['volsite.vsAcceptor'] = features.get('chem.hAcceptorAtoms', 0)
-            features['volsite.vsDonor'] = features.get('chem.hDonorAtoms', 0)
-            
-            # --- Protrusion features ---
-            # Calculate atoms within the protrusion radius
-            atoms_in_protrusion_sphere = [atom for atom in self.atoms 
-                                          if atom.distance(point_coord) < protrusion_radius]
-            
-            if atoms_in_protrusion_sphere:
-                # Protrusion: inversely proportional to the number of nearby atoms
-                # The fewer atoms nearby, the more the point protrudes from the protein
-                features['protrusion.protrusion'] = protrusion_radius * 10.0 / (1.0 + len(atoms_in_protrusion_sphere))
-                
-                # Calculate distance to the protein "center of mass"
-                if self.atoms:
-                    protein_center = np.mean([atom.get_coord() for atom in self.atoms], axis=0)
-                    dist_to_center = np.linalg.norm(point_coord - protein_center)
-                    features['protrusion.distanceToCenter'] = dist_to_center
-            else:
-                features['protrusion.protrusion'] = protrusion_radius * 10.0
-                features['protrusion.distanceToCenter'] = 0.0
-            
-            # --- B-factor features ---
-            if nearby_atoms:
-                # Use distance-weighted average B-factor
-                weighted_bfactors = []
-                weights = []
-                
-                for atom in nearby_atoms:
-                    distance = atom.distance(point_coord)
-                    weight = 1.0 / (1.0 + distance)
-                    weighted_bfactors.append(atom.temp_factor * weight)
-                    weights.append(weight)
-                
-                if weights:  # Ensure there are weights to sum
-                    features['bfactor.bfactor'] = sum(weighted_bfactors) / sum(weights)
-                else:
-                    features['bfactor.bfactor'] = 0.0
-            else:
-                features['bfactor.bfactor'] = 0.0
-            
-            # --- Atom table features ---
-            # These are pre-computed properties based on atom types
-            features['atom_table.apRawValids'] = features.get('chem.atomDensity', 0)
-            features['atom_table.apRawInvalids'] = features.get('chem.atomDensity', 0) / 2.0
-            features['atom_table.atomicHydrophobicity'] = features.get('chem.hydrophobicAtoms', 0)
-            
-            # Store all features
             sas_point.features = features
     
     def export_features(self, output_path):
@@ -899,6 +1081,14 @@ class Protein:
         
         # Convert to DataFrame
         df = pd.DataFrame(features_dicts)
+
+        feature_cols = [f'chem.{h}' for h in CHEM_HEADER] + \
+                       [f'volsite.{h}' for h in VOLSITE_HEADER] + \
+                       ['protrusion.protrusion', 'bfactor.bfactor'] + \
+                       [f'atom_table.{h}' for h in ATOM_TABLE_HEADER]
+        meta_cols = ['file_name', 'x', 'y', 'z', 'chain_id', 'residue_number', 'residue_name']
+        order = meta_cols + feature_cols + ['class']
+        df = df[order]
         
         # Ensure output directory exists
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
@@ -1058,7 +1248,11 @@ def process_protein(pdb_path, output_dir):
             logger.error(f"Failed to generate SAS points for {protein_name} using any available method. Skipping feature extraction.")
             return None
 
-        protein.calculate_features()
+        protein.calculate_features(
+            neighborhood_radius=neighborhood_radius,
+            protrusion_radius=protrusion_radius,
+            atom_table_feat_pow=atom_table_feat_pow
+        )
         # Classify binding sites based on ligand proximity
         protein.classify_binding_sites()
         protein.export_features(output_path)
@@ -1101,7 +1295,7 @@ def combine_features(output_dir):
     return combined_output_path
 
 
-def process_with_params(pdb_path, output_dir, use_biopython, probe_radius, sr_n_points, point_density, neighborhood_radius, protrusion_radius):
+def process_with_params(pdb_path, output_dir, use_biopython, probe_radius, sr_n_points, point_density, neighborhood_radius, protrusion_radius, atom_table_feat_pow):
     """Process a single protein and extract features with the given parameters."""
     try:
         protein_name = os.path.basename(pdb_path)
@@ -1123,7 +1317,11 @@ def process_with_params(pdb_path, output_dir, use_biopython, probe_radius, sr_n_
         else:
             protein.generate_sas_points(probe_radius=probe_radius, density=point_density)
         
-        protein.calculate_features(neighborhood_radius=neighborhood_radius, protrusion_radius=protrusion_radius)
+        protein.calculate_features(
+            neighborhood_radius=neighborhood_radius,
+            protrusion_radius=protrusion_radius,
+            atom_table_feat_pow=atom_table_feat_pow
+        )
         # Classify binding sites based on ligand proximity
         protein.classify_binding_sites()
         protein.export_features(output_path)
@@ -1149,9 +1347,11 @@ def main():
     
     # Optional arguments
     parser.add_argument("--probe_radius", type=float, default=1.4, help="Solvent probe radius in Angstroms (default: 1.4)")
-    parser.add_argument("--point_density", type=float, default=3.0, help="Density of SAS points (default: 3.0)")
-    parser.add_argument("--neighborhood_radius", type=float, default=8.0, help="Radius for feature calculation (default: 8.0)")
+    parser.add_argument("--point_density", type=float, default=0.1, help="Density of SAS points (default: 0.1)")
+    parser.add_argument("--neighborhood_radius", type=float, default=4.0, help="Radius for feature calculation (default: 4.0)")
     parser.add_argument("--protrusion_radius", type=float, default=10.0, help="Radius for protrusion calculation (default: 10.0)")
+    parser.add_argument("--atom_table_feat_pow", type=float, default=2.0,
+                        help="Power for atom table features (default: 2.0)")
     parser.add_argument("--threads", type=int, default=os.cpu_count(), help=f"Number of processing threads (default: {os.cpu_count()})")
     parser.add_argument("--skip_existing", action="store_true", help="Skip processing proteins that already have feature files")
     parser.add_argument("--validate", action="store_true", help="Validate the final output file")
@@ -1178,8 +1378,11 @@ def main():
     # Normal processing mode
     logger.info(f"Processing dataset: {args.dataset_file}")
     logger.info(f"Output directory: {args.output_dir}")
-    logger.info(f"Parameters: probe_radius={args.probe_radius}, point_density={args.point_density}, " + 
-                f"neighborhood_radius={args.neighborhood_radius}, protrusion_radius={args.protrusion_radius}")
+    logger.info(
+        f"Parameters: probe_radius={args.probe_radius}, point_density={args.point_density}, "
+        f"neighborhood_radius={args.neighborhood_radius}, protrusion_radius={args.protrusion_radius}, "
+        f"atom_table_feat_pow={args.atom_table_feat_pow}"
+    )
     
     # Get the number of threads
     num_threads = args.threads
@@ -1223,9 +1426,17 @@ def main():
         with concurrent.futures.ProcessPoolExecutor(max_workers=num_threads) as executor:
             # Create a list of tuples with parameters for each protein
             process_params = [
-                (pdb_path, args.output_dir, args.use_biopython, 
-                 args.probe_radius, args.sr_n_points, args.point_density, 
-                 args.neighborhood_radius, args.protrusion_radius) 
+                (
+                    pdb_path,
+                    args.output_dir,
+                    args.use_biopython,
+                    args.probe_radius,
+                    args.sr_n_points,
+                    args.point_density,
+                    args.neighborhood_radius,
+                    args.protrusion_radius,
+                    args.atom_table_feat_pow,
+                )
                 for pdb_path in pdb_paths
             ]
             
@@ -1247,14 +1458,15 @@ def main():
         # Process sequentially for single thread or empty list
         for pdb_path in pdb_paths:
             output_path = process_with_params(
-                pdb_path, 
-                args.output_dir, 
-                args.use_biopython, 
-                args.probe_radius, 
-                args.sr_n_points, 
-                args.point_density, 
-                args.neighborhood_radius, 
-                args.protrusion_radius
+                pdb_path,
+                args.output_dir,
+                args.use_biopython,
+                args.probe_radius,
+                args.sr_n_points,
+                args.point_density,
+                args.neighborhood_radius,
+                args.protrusion_radius,
+                args.atom_table_feat_pow,
             )
             if output_path:
                 output_paths.append(output_path)
