@@ -994,7 +994,7 @@ class Protein:
             logger.error(traceback.format_exc())
             return False
 
-    def calculate_features(self, neighborhood_radius=6.0, protrusion_radius=10.0, atom_table_feat_pow=2.0):
+    def calculate_features(self, neighborhood_radius=6.0, protrusion_radius=11.3, atom_table_feat_pow=2.0, atom_table_feat_keep_sgn=False):
         """Calculate P2Rank-like features for each SAS point using neighbourhood aggregation."""
         logger.info(
             f"Calculating features for {len(self.sas_points)} SAS points in {self.file_name}")
@@ -1021,7 +1021,11 @@ class Protein:
                 at = {h: 0.0 for h in ATOM_TABLE_HEADER}
             for h in ATOM_TABLE_HEADER:
                 val = float(at.get(h, 0.0))
-                vec[f'atom_table.{h}'] = abs(val) ** atom_table_feat_pow
+                if atom_table_feat_keep_sgn:
+                    sign = 1.0 if val >= 0 else -1.0
+                    vec[f'atom_table.{h}'] = sign * (abs(val) ** atom_table_feat_pow)
+                else:
+                    vec[f'atom_table.{h}'] = abs(val) ** atom_table_feat_pow
 
             vec['bfactor.bfactor'] = atom.temp_factor
 
@@ -1358,9 +1362,8 @@ def main():
     parser.add_argument("--probe_radius", type=float, default=1.6, help="Solvent probe radius in Angstroms (default: 1.6)")
     parser.add_argument("--point_density", type=float, default=3.0, help="SAS point density approximating P2Rank tessellation=2")
     parser.add_argument("--neighborhood_radius", type=float, default=6.0, help="Radius for feature calculation (default: 6.0)")
-    parser.add_argument("--protrusion_radius", type=float, default=10.0, help="Radius for protrusion calculation (default: 10.0)")
-    parser.add_argument("--atom_table_feat_pow", type=float, default=2.0,
-                        help="Power for atom table features (default: 2.0)")
+    parser.add_argument("--protrusion_radius", type=float, default=11.3, help="Radius for protrusion calculation (default: 11.3)")
+    parser.add_argument("--atom_table_feat_pow", type=float, default=2.0, help="Power for atom table features (default: 2.0)")
     parser.add_argument("--threads", type=int, default=os.cpu_count(), help=f"Number of processing threads (default: {os.cpu_count()})")
     parser.add_argument("--skip_existing", action="store_true", help="Skip processing proteins that already have feature files")
     parser.add_argument("--validate", action="store_true", help="Validate the final output file")
@@ -1368,7 +1371,8 @@ def main():
     parser.add_argument("--analyze_only", action="store_true", help="Only analyze existing output without processing proteins")
     parser.add_argument("--use_biopython", action="store_true", help="Use BioPython for SAS point generation instead of the custom implementation")
     parser.add_argument("--sr_n_points", type=int, default=100, help="Number of points to use in the ShrakeRupley algorithm (default: 100)")
-    
+    parser.add_argument("--atom_table_feat_keep_sgn", action="store_true", default=False, help="Preserve sign when applying exponent to atom table features (default: False, matches P2Rank default)")
+
     args = parser.parse_args()
     
     # Create output directory if it doesn't exist
