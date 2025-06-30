@@ -1,7 +1,40 @@
-# Ignore everything
-/*
+# Ignore the folder output
+output/
+
+
 # But not these files and folders...
 !p2rank/
 !*.py
 !*.ipynb
 !.gitignore
+
+# --- Begin merged p2rank .gitignore rules ---
+p2rank/build/
+p2rank/bin/
+p2rank/.gradle/
+p2rank/.settings/
+p2rank/.project
+p2rank/.classpath
+p2rank/.idea
+p2rank/*.iml
+p2rank/*.ipr
+p2rank/*.iws
+p2rank/*.class
+p2rank/classes/
+p2rank/logs/*
+p2rank/*.log
+p2rank/out/*
+p2rank/*.stackdump
+p2rank/local*
+!p2rank/*.pdb
+!p2rank/releases
+!p2rank/lib/*
+!p2rank/*.md
+p2rank/venv/
+p2rank/tmp
+# P2Rank distro
+p2rank/distro/bin/
+p2rank/distro/log/*
+p2rank/distro/test_output/
+p2rank/distro/README.md
+# --- End merged p2rank .gitignore rules ---
