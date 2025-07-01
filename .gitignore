@@ -41,5 +41,4 @@ p2rank/distro/test_output/
 p2rank/distro/README.md
 # Python build artifacts
 __pycache__/
-out_test/
 # --- End merged p2rank .gitignore rules ---

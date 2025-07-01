@@ -25100,4 +25100,1034 @@ AttributeError: 'Protein' object has no attribute 'ligands'
 2025-06-30 23:41:03,724 - ProteinFeatureExtractor - INFO - Processed c.007.001.001_1h16a.pdb in 1102.50 seconds
 2025-06-30 23:41:03,760 - ProteinFeatureExtractor - INFO - Successfully processed a protein
 2025-06-30 23:42:09,256 - ProteinFeatureExtractor - INFO - Combined 1643990 rows into output/vectorsTrain.csv
-2025-06-30 23:42:09,299 - ProteinFeatureExtractor - INFO - Feature extraction complete. Combined features saved to output/vectorsTrain.csv
+2025-06-30 23:42:09,299 - ProteinFeatureExtractor - INFO - Feature extraction complete. Combined features saved to output/vectorsTrain.csv2025-07-01 11:06:30,462 - ProteinFeatureExtractor - INFO - Processing dataset: bu48.ds
+2025-07-01 11:06:30,463 - ProteinFeatureExtractor - INFO - Output directory: output_bu48
+2025-07-01 11:06:30,463 - ProteinFeatureExtractor - INFO - Parameters: probe_radius=1.6, point_density=3.0, neighborhood_radius=6.0, protrusion_radius=11.3, atom_table_feat_pow=2.0
+2025-07-01 11:06:30,463 - ProteinFeatureExtractor - INFO - Using 80 threads for processing
+2025-07-01 11:06:30,463 - ProteinFeatureExtractor - INFO - Using BioPython for SAS point generation
+2025-07-01 11:06:30,534 - ProteinFeatureExtractor - INFO - Found 93 PDB files in the dataset
+2025-07-01 11:06:30,940 - ProteinFeatureExtractor - INFO - Parsed 1057 protein atoms and 1 ligands from 1ifb.pdb
+2025-07-01 11:06:30,941 - ProteinFeatureExtractor - INFO - Ligands found: PLM(:133)
+2025-07-01 11:06:30,941 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ifb.pdb using BioPython
+2025-07-01 11:06:30,942 - ProteinFeatureExtractor - INFO - Parsed 686 protein atoms and 1 ligands from 1krn.pdb
+2025-07-01 11:06:30,942 - ProteinFeatureExtractor - INFO - Ligands found: ACA(:100)
+2025-07-01 11:06:30,942 - ProteinFeatureExtractor - INFO - Generating SAS points for 1krn.pdb using BioPython
+2025-07-01 11:06:30,944 - ProteinFeatureExtractor - INFO - Parsed 1001 protein atoms and 3 ligands from 1hel.pdb
+2025-07-01 11:06:30,945 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:201), NAG(:202), NAG(:203)
+2025-07-01 11:06:30,945 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hel.pdb using BioPython
+2025-07-01 11:06:30,947 - ProteinFeatureExtractor - INFO - Parsed 1001 protein atoms and 3 ligands from 1hew.pdb
+2025-07-01 11:06:30,947 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:201), NAG(:202), NAG(:203)
+2025-07-01 11:06:30,948 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hew.pdb using BioPython
+2025-07-01 11:06:30,950 - ProteinFeatureExtractor - INFO - Parsed 1408 protein atoms and 1 ligands from 1brq.pdb
+2025-07-01 11:06:30,951 - ProteinFeatureExtractor - INFO - Ligands found: RTL(:1)
+2025-07-01 11:06:30,951 - ProteinFeatureExtractor - INFO - Generating SAS points for 1brq.pdb using BioPython
+2025-07-01 11:06:30,951 - ProteinFeatureExtractor - INFO - Parsed 1245 protein atoms and 1 ligands from 1hfc.pdb
+2025-07-01 11:06:30,952 - ProteinFeatureExtractor - INFO - Ligands found: HAP(:280)
+2025-07-01 11:06:30,952 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hfc.pdb using BioPython
+2025-07-01 11:06:30,952 - ProteinFeatureExtractor - INFO - Parsed 899 protein atoms and 1 ligands from 1swb.pdb
+2025-07-01 11:06:30,952 - ProteinFeatureExtractor - INFO - Ligands found: BTN(:300)
+2025-07-01 11:06:30,952 - ProteinFeatureExtractor - INFO - Generating SAS points for 1swb.pdb using BioPython
+2025-07-01 11:06:30,953 - ProteinFeatureExtractor - INFO - Parsed 1643 protein atoms and 1 ligands from 1chg.pdb
+2025-07-01 11:06:30,953 - ProteinFeatureExtractor - INFO - Ligands found: CIN(:246)
+2025-07-01 11:06:30,953 - ProteinFeatureExtractor - INFO - Generating SAS points for 1chg.pdb using BioPython
+2025-07-01 11:06:30,953 - ProteinFeatureExtractor - INFO - Parsed 901 protein atoms and 1 ligands from 1stp.pdb
+2025-07-01 11:06:30,954 - ProteinFeatureExtractor - INFO - Ligands found: BTN(:300)
+2025-07-01 11:06:30,954 - ProteinFeatureExtractor - INFO - Generating SAS points for 1stp.pdb using BioPython
+2025-07-01 11:06:30,954 - ProteinFeatureExtractor - INFO - Parsed 1082 protein atoms and 1 ligands from 1snc.pdb
+2025-07-01 11:06:30,954 - ProteinFeatureExtractor - INFO - Ligands found: PTP(:143)
+2025-07-01 11:06:30,954 - ProteinFeatureExtractor - INFO - Generating SAS points for 1snc.pdb using BioPython
+2025-07-01 11:06:30,955 - ProteinFeatureExtractor - INFO - Parsed 955 protein atoms and 1 ligands from 1rob.pdb
+2025-07-01 11:06:30,955 - ProteinFeatureExtractor - INFO - Ligands found: C2P(:126)
+2025-07-01 11:06:30,955 - ProteinFeatureExtractor - INFO - Generating SAS points for 1rob.pdb using BioPython
+2025-07-01 11:06:30,956 - ProteinFeatureExtractor - INFO - Parsed 1542 protein atoms and 1 ligands from 1cge.pdb
+2025-07-01 11:06:30,957 - ProteinFeatureExtractor - INFO - Ligands found: HAP(:280)
+2025-07-01 11:06:30,957 - ProteinFeatureExtractor - INFO - Generating SAS points for 1cge.pdb using BioPython
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Parsed 1091 protein atoms and 1 ligands from 1stn.pdb
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Ligands found: PTP(:143)
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Generating SAS points for 1stn.pdb using BioPython
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Parsed 1408 protein atoms and 1 ligands from 1rbp.pdb
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Parsed 1508 protein atoms and 4 ligands from 1hsi.pdb
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Ligands found: RTL(:1)
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Ligands found: QND(I:1), HPB(I:3), PPL(I:4), PY2(I:5)
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Generating SAS points for 1rbp.pdb using BioPython
+2025-07-01 11:06:30,958 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hsi.pdb using BioPython
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 630 protein atoms and 1 ligands from 2pk4.pdb
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 1933 protein atoms and 1 ligands from 1ahc.pdb
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Ligands found: ACA(:100)
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Ligands found: ADN(:300)
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Generating SAS points for 2pk4.pdb using BioPython
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ahc.pdb using BioPython
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 1057 protein atoms and 1 ligands from 2ifb.pdb
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Ligands found: PLM(:133)
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 2427 protein atoms and 1 ligands from 1l3f.pdb
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Generating SAS points for 2ifb.pdb using BioPython
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Ligands found: PHO(I:1)
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 1736 protein atoms and 1 ligands from 1a6u.pdb
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Generating SAS points for 1l3f.pdb using BioPython
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Ligands found: NIP(H:430)
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 2438 protein atoms and 2 ligands from 1hyt.pdb
+2025-07-01 11:06:30,959 - ProteinFeatureExtractor - INFO - Parsed 2390 protein atoms and 2 ligands from 1npc.pdb
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Generating SAS points for 1a6u.pdb using BioPython
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Ligands found: DMS(:806), BZS(:807)
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Ligands found: DMS(:806), BZS(:807)
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hyt.pdb using BioPython
+2025-07-01 11:06:30,960 - ProteinFeatureExtractor - INFO - Generating SAS points for 1npc.pdb using BioPython
+2025-07-01 11:06:30,961 - ProteinFeatureExtractor - INFO - Parsed 1629 protein atoms and 1 ligands from 3ptb.pdb
+2025-07-01 11:06:30,961 - ProteinFeatureExtractor - INFO - Ligands found: BEN(:1)
+2025-07-01 11:06:30,961 - ProteinFeatureExtractor - INFO - Generating SAS points for 3ptb.pdb using BioPython
+2025-07-01 11:06:30,962 - ProteinFeatureExtractor - INFO - Parsed 1517 protein atoms and 4 ligands from 1ida.pdb
+2025-07-01 11:06:30,962 - ProteinFeatureExtractor - INFO - Parsed 1740 protein atoms and 2 ligands from 1srf.pdb
+2025-07-01 11:06:30,963 - ProteinFeatureExtractor - INFO - Ligands found: MTB(A:300), MTB(B:300)
+2025-07-01 11:06:30,963 - ProteinFeatureExtractor - INFO - Ligands found: QND(I:1), HPB(I:3), PPL(I:4), PY2(I:5)
+2025-07-01 11:06:30,963 - ProteinFeatureExtractor - INFO - Generating SAS points for 1srf.pdb using BioPython
+2025-07-01 11:06:30,963 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ida.pdb using BioPython
+2025-07-01 11:06:30,963 - ProteinFeatureExtractor - INFO - Parsed 1999 protein atoms and 1 ligands from 1blh.pdb
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Ligands found: FOS(:70)
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Generating SAS points for 1blh.pdb using BioPython
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Parsed 1516 protein atoms and 2 ligands from 3phv.pdb
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Parsed 2803 protein atoms and 1 ligands from 1cdo.pdb
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Ligands found: VAC(I:1), VAC(I:2)
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Generating SAS points for 3phv.pdb using BioPython
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Ligands found: NAD(A:375)
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Parsed 2509 protein atoms and 2 ligands from 1bbs.pdb
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Generating SAS points for 1cdo.pdb using BioPython
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:345), C60(:350)
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Generating SAS points for 1bbs.pdb using BioPython
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Parsed 1629 protein atoms and 1 ligands from 1mtw.pdb
+2025-07-01 11:06:30,964 - ProteinFeatureExtractor - INFO - Parsed 2028 protein atoms and 1 ligands from 1djb.pdb
+2025-07-01 11:06:30,965 - ProteinFeatureExtractor - INFO - Ligands found: FOS(:70)
+2025-07-01 11:06:30,965 - ProteinFeatureExtractor - INFO - Ligands found: DX9(:999)
+2025-07-01 11:06:30,965 - ProteinFeatureExtractor - INFO - Generating SAS points for 1djb.pdb using BioPython
+2025-07-01 11:06:30,965 - ProteinFeatureExtractor - INFO - Generating SAS points for 1mtw.pdb using BioPython
+2025-07-01 11:06:30,965 - ProteinFeatureExtractor - INFO - Parsed 789 protein atoms and 1 ligands from 3mth.pdb
+2025-07-01 11:06:30,966 - ProteinFeatureExtractor - INFO - Ligands found: MPB(:200)
+2025-07-01 11:06:30,966 - ProteinFeatureExtractor - INFO - Generating SAS points for 3mth.pdb using BioPython
+2025-07-01 11:06:30,966 - ProteinFeatureExtractor - INFO - Parsed 2457 protein atoms and 3 ligands from 1pso.pdb
+2025-07-01 11:06:30,967 - ProteinFeatureExtractor - INFO - Ligands found: IVA(I:1), STA(I:4), STA(I:6)
+2025-07-01 11:06:30,967 - ProteinFeatureExtractor - INFO - Generating SAS points for 1pso.pdb using BioPython
+2025-07-01 11:06:30,967 - ProteinFeatureExtractor - INFO - Parsed 2358 protein atoms and 1 ligands from 1dwd.pdb
+2025-07-01 11:06:30,967 - ProteinFeatureExtractor - INFO - Ligands found: MID(:1)
+2025-07-01 11:06:30,968 - ProteinFeatureExtractor - INFO - Generating SAS points for 1dwd.pdb using BioPython
+2025-07-01 11:06:30,967 - ProteinFeatureExtractor - INFO - Parsed 928 protein atoms and 1 ligands from 3p2p.pdb
+2025-07-01 11:06:30,968 - ProteinFeatureExtractor - INFO - Ligands found: DHG(A:126)
+2025-07-01 11:06:30,968 - ProteinFeatureExtractor - INFO - Generating SAS points for 3p2p.pdb using BioPython
+2025-07-01 11:06:30,968 - ProteinFeatureExtractor - INFO - Parsed 2366 protein atoms and 1 ligands from 1apu.pdb
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Ligands found: MAN(:375)
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Generating SAS points for 1apu.pdb using BioPython
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Parsed 2049 protein atoms and 1 ligands from 1okm.pdb
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Ligands found: SAB(:555)
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Parsed 1736 protein atoms and 1 ligands from 3gch.pdb
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Generating SAS points for 1okm.pdb using BioPython
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Ligands found: CIN(:246)
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Parsed 1774 protein atoms and 1 ligands from 1a6w.pdb
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Generating SAS points for 3gch.pdb using BioPython
+2025-07-01 11:06:30,969 - ProteinFeatureExtractor - INFO - Ligands found: NIP(H:430)
+2025-07-01 11:06:30,970 - ProteinFeatureExtractor - INFO - Generating SAS points for 1a6w.pdb using BioPython
+2025-07-01 11:06:30,970 - ProteinFeatureExtractor - INFO - Parsed 3204 protein atoms and 2 ligands from 1phd.pdb
+2025-07-01 11:06:30,971 - ProteinFeatureExtractor - INFO - Ligands found: HEM(:417), PIM(:422)
+2025-07-01 11:06:30,971 - ProteinFeatureExtractor - INFO - Generating SAS points for 1phd.pdb using BioPython
+2025-07-01 11:06:30,971 - ProteinFeatureExtractor - INFO - Parsed 3289 protein atoms and 1 ligands from 1igj.pdb
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Ligands found: DGX(X:1)
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Generating SAS points for 1igj.pdb using BioPython
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Parsed 2974 protein atoms and 2 ligands from 1fbp.pdb
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Ligands found: F6P(A:336), AMP(A:337)
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Parsed 1822 protein atoms and 1 ligands from 1esa.pdb
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Generating SAS points for 1fbp.pdb using BioPython
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Parsed 4095 protein atoms and 1 ligands from 1acj.pdb
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Ligands found: ICL(:260)
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Ligands found: THA(:999)
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Generating SAS points for 1esa.pdb using BioPython
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Generating SAS points for 1acj.pdb using BioPython
+2025-07-01 11:06:30,972 - ProteinFeatureExtractor - INFO - Parsed 2892 protein atoms and 1 ligands from 1gca.pdb
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Parsed 2073 protein atoms and 1 ligands from 1ime.pdb
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Ligands found: LIP(A:3)
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Ligands found: GAL(:350)
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ime.pdb using BioPython
+2025-07-01 11:06:30,973 - ProteinFeatureExtractor - INFO - Generating SAS points for 1gca.pdb using BioPython
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Parsed 2073 protein atoms and 1 ligands from 1imb.pdb
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Ligands found: LIP(A:3)
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Parsed 3314 protein atoms and 1 ligands from 1a4j.pdb
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Generating SAS points for 1imb.pdb using BioPython
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Ligands found: DGX(X:1)
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Generating SAS points for 1a4j.pdb using BioPython
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Parsed 1629 protein atoms and 1 ligands from 3ptn.pdb
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Ligands found: BEN(:1)
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Generating SAS points for 3ptn.pdb using BioPython
+2025-07-01 11:06:30,977 - ProteinFeatureExtractor - INFO - Parsed 1883 protein atoms and 1 ligands from 1ypi.pdb
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Ligands found: PGA(A:249)
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ypi.pdb using BioPython
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Parsed 1883 protein atoms and 1 ligands from 2ypi.pdb
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Ligands found: PGA(A:249)
+2025-07-01 11:06:30,978 - ProteinFeatureExtractor - INFO - Generating SAS points for 2ypi.pdb using BioPython
+2025-07-01 11:06:30,979 - ProteinFeatureExtractor - INFO - Parsed 1822 protein atoms and 1 ligands from 1inc.pdb
+2025-07-01 11:06:30,979 - ProteinFeatureExtractor - INFO - Ligands found: ICL(:260)
+2025-07-01 11:06:30,979 - ProteinFeatureExtractor - INFO - Generating SAS points for 1inc.pdb using BioPython
+2025-07-01 11:06:30,980 - ProteinFeatureExtractor - INFO - Parsed 2046 protein atoms and 1 ligands from 2h4n.pdb
+2025-07-01 11:06:30,981 - ProteinFeatureExtractor - INFO - Ligands found: AZM(:264)
+2025-07-01 11:06:30,981 - ProteinFeatureExtractor - INFO - Generating SAS points for 2h4n.pdb using BioPython
+2025-07-01 11:06:30,983 - ProteinFeatureExtractor - INFO - Parsed 1738 protein atoms and 2 ligands from 1pts.pdb
+2025-07-01 11:06:30,983 - ProteinFeatureExtractor - INFO - Ligands found: MTB(A:300), MTB(B:300)
+2025-07-01 11:06:30,983 - ProteinFeatureExtractor - INFO - Generating SAS points for 1pts.pdb using BioPython
+2025-07-01 11:06:30,984 - ProteinFeatureExtractor - INFO - Parsed 2396 protein atoms and 1 ligands from 1mrg.pdb
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Ligands found: ADN(:300)
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Generating SAS points for 1mrg.pdb using BioPython
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Parsed 3302 protein atoms and 1 ligands from 1pdz.pdb
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Ligands found: PGA(:439)
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Generating SAS points for 1pdz.pdb using BioPython
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Parsed 2079 protein atoms and 1 ligands from 2cba.pdb
+2025-07-01 11:06:30,985 - ProteinFeatureExtractor - INFO - Ligands found: AZM(:264)
+2025-07-01 11:06:30,986 - ProteinFeatureExtractor - INFO - Generating SAS points for 2cba.pdb using BioPython
+2025-07-01 11:06:30,986 - ProteinFeatureExtractor - INFO - Parsed 2175 protein atoms and 2 ligands from 1qpe.pdb
+2025-07-01 11:06:30,986 - ProteinFeatureExtractor - INFO - Ligands found: PTR(A:394), PP2(:1904)
+2025-07-01 11:06:30,986 - ProteinFeatureExtractor - INFO - Generating SAS points for 1qpe.pdb using BioPython
+2025-07-01 11:06:30,987 - ProteinFeatureExtractor - INFO - Parsed 2258 protein atoms and 1 ligands from 1ulb.pdb
+2025-07-01 11:06:30,987 - ProteinFeatureExtractor - INFO - Parsed 2150 protein atoms and 2 ligands from 1bid.pdb
+2025-07-01 11:06:30,987 - ProteinFeatureExtractor - INFO - Ligands found: GUN(:290)
+2025-07-01 11:06:30,987 - ProteinFeatureExtractor - INFO - Ligands found: CBX(:0), UMP(:603)
+2025-07-01 11:06:30,987 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ulb.pdb using BioPython
+2025-07-01 11:06:30,988 - ProteinFeatureExtractor - INFO - Generating SAS points for 1bid.pdb using BioPython
+2025-07-01 11:06:30,988 - ProteinFeatureExtractor - INFO - Parsed 2442 protein atoms and 1 ligands from 2ctc.pdb
+2025-07-01 11:06:30,989 - ProteinFeatureExtractor - INFO - Ligands found: LOF(:309)
+2025-07-01 11:06:30,989 - ProteinFeatureExtractor - INFO - Generating SAS points for 2ctc.pdb using BioPython
+2025-07-01 11:06:30,990 - ProteinFeatureExtractor - INFO - Parsed 1629 protein atoms and 1 ligands from 2tga.pdb
+2025-07-01 11:06:30,990 - ProteinFeatureExtractor - INFO - Ligands found: DX9(:999)
+2025-07-01 11:06:30,990 - ProteinFeatureExtractor - INFO - Generating SAS points for 2tga.pdb using BioPython
+2025-07-01 11:06:30,992 - ProteinFeatureExtractor - INFO - Parsed 3925 protein atoms and 4 ligands from 1byb.pdb
+2025-07-01 11:06:30,993 - ProteinFeatureExtractor - INFO - Ligands found: GLC(:496), GLC(:497), GLC(:498), GLC(:499)
+2025-07-01 11:06:30,993 - ProteinFeatureExtractor - INFO - Generating SAS points for 1byb.pdb using BioPython
+2025-07-01 11:06:30,993 - ProteinFeatureExtractor - INFO - Parsed 3301 protein atoms and 1 ligands from 1pdy.pdb
+2025-07-01 11:06:30,993 - ProteinFeatureExtractor - INFO - Ligands found: PGA(:439)
+2025-07-01 11:06:30,993 - ProteinFeatureExtractor - INFO - Parsed 2438 protein atoms and 3 ligands from 1psn.pdb
+2025-07-01 11:06:30,994 - ProteinFeatureExtractor - INFO - Generating SAS points for 1pdy.pdb using BioPython
+2025-07-01 11:06:30,994 - ProteinFeatureExtractor - INFO - Ligands found: IVA(I:1), STA(I:4), STA(I:6)
+2025-07-01 11:06:30,994 - ProteinFeatureExtractor - INFO - Generating SAS points for 1psn.pdb using BioPython
+2025-07-01 11:06:30,994 - ProteinFeatureExtractor - INFO - Parsed 2432 protein atoms and 1 ligands from 2tmn.pdb
+2025-07-01 11:06:30,995 - ProteinFeatureExtractor - INFO - Ligands found: PHO(I:1)
+2025-07-01 11:06:30,995 - ProteinFeatureExtractor - INFO - Generating SAS points for 2tmn.pdb using BioPython
+2025-07-01 11:06:30,996 - ProteinFeatureExtractor - INFO - Parsed 3765 protein atoms and 15 ligands from 1nna.pdb
+2025-07-01 11:06:30,996 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:472), NAG(:473), NAG(:474), NAG(:475), MAN(:476), FUC(:477), NAG(:478), NAG(:479), MAN(:480), MAN(:481), MAN(:482), MAN(:483), NAG(:484), NAG(:485), ST1(:471)
+2025-07-01 11:06:30,996 - ProteinFeatureExtractor - INFO - Generating SAS points for 1nna.pdb using BioPython
+2025-07-01 11:06:30,997 - ProteinFeatureExtractor - INFO - Parsed 1809 protein atoms and 1 ligands from 2ctv.pdb
+2025-07-01 11:06:30,997 - ProteinFeatureExtractor - INFO - Ligands found: MMA(A:238)
+2025-07-01 11:06:30,997 - ProteinFeatureExtractor - INFO - Generating SAS points for 2ctv.pdb using BioPython
+2025-07-01 11:06:30,997 - ProteinFeatureExtractor - INFO - Parsed 2309 protein atoms and 1 ligands from 1hxf.pdb
+2025-07-01 11:06:30,998 - ProteinFeatureExtractor - INFO - Ligands found: MID(:1)
+2025-07-01 11:06:30,998 - ProteinFeatureExtractor - INFO - Generating SAS points for 1hxf.pdb using BioPython
+2025-07-01 11:06:30,998 - ProteinFeatureExtractor - INFO - Parsed 3929 protein atoms and 4 ligands from 1bya.pdb
+2025-07-01 11:06:30,998 - ProteinFeatureExtractor - INFO - Ligands found: GLC(:496), GLC(:497), GLC(:498), GLC(:499)
+2025-07-01 11:06:30,998 - ProteinFeatureExtractor - INFO - Generating SAS points for 1bya.pdb using BioPython
+2025-07-01 11:06:31,000 - ProteinFeatureExtractor - INFO - Parsed 2150 protein atoms and 2 ligands from 3tms.pdb
+2025-07-01 11:06:31,000 - ProteinFeatureExtractor - INFO - Ligands found: CBX(:0), UMP(:603)
+2025-07-01 11:06:31,000 - ProteinFeatureExtractor - INFO - Generating SAS points for 3tms.pdb using BioPython
+2025-07-01 11:06:31,000 - ProteinFeatureExtractor - INFO - Parsed 2510 protein atoms and 2 ligands from 1rne.pdb
+2025-07-01 11:06:31,001 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:345), C60(:350)
+2025-07-01 11:06:31,001 - ProteinFeatureExtractor - INFO - Generating SAS points for 1rne.pdb using BioPython
+2025-07-01 11:06:31,001 - ProteinFeatureExtractor - INFO - Parsed 3204 protein atoms and 2 ligands from 1phc.pdb
+2025-07-01 11:06:31,001 - ProteinFeatureExtractor - INFO - Ligands found: HEM(:417), PIM(:422)
+2025-07-01 11:06:31,002 - ProteinFeatureExtractor - INFO - Generating SAS points for 1phc.pdb using BioPython
+2025-07-01 11:06:31,003 - ProteinFeatureExtractor - INFO - Parsed 2450 protein atoms and 1 ligands from 2ctb.pdb
+2025-07-01 11:06:31,004 - ProteinFeatureExtractor - INFO - Ligands found: LOF(:309)
+2025-07-01 11:06:31,004 - ProteinFeatureExtractor - INFO - Generating SAS points for 2ctb.pdb using BioPython
+2025-07-01 11:06:31,011 - ProteinFeatureExtractor - INFO - Parsed 4238 protein atoms and 1 ligands from 1qif.pdb
+2025-07-01 11:06:31,011 - ProteinFeatureExtractor - INFO - Ligands found: THA(:999)
+2025-07-01 11:06:31,011 - ProteinFeatureExtractor - INFO - Generating SAS points for 1qif.pdb using BioPython
+2025-07-01 11:06:31,012 - ProteinFeatureExtractor - INFO - Parsed 2258 protein atoms and 1 ligands from 1ula.pdb
+2025-07-01 11:06:31,012 - ProteinFeatureExtractor - INFO - Ligands found: GUN(:290)
+2025-07-01 11:06:31,012 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ula.pdb using BioPython
+2025-07-01 11:06:31,014 - ProteinFeatureExtractor - INFO - Parsed 3745 protein atoms and 15 ligands from 1ivd.pdb
+2025-07-01 11:06:31,014 - ProteinFeatureExtractor - INFO - Ligands found: NAG(:472), NAG(:473), NAG(:474), NAG(:475), MAN(:476), FUC(:477), NAG(:478), NAG(:479), MAN(:480), MAN(:481), MAN(:482), MAN(:483), NAG(:484), NAG(:485), ST1(:471)
+2025-07-01 11:06:31,014 - ProteinFeatureExtractor - INFO - Generating SAS points for 1ivd.pdb using BioPython
+2025-07-01 11:06:31,020 - ProteinFeatureExtractor - INFO - Parsed 2974 protein atoms and 2 ligands from 2fbp.pdb
+2025-07-01 11:06:31,021 - ProteinFeatureExtractor - INFO - Ligands found: F6P(A:336), AMP(A:337)
+2025-07-01 11:06:31,021 - ProteinFeatureExtractor - INFO - Generating SAS points for 2fbp.pdb using BioPython
+2025-07-01 11:06:31,023 - ProteinFeatureExtractor - INFO - Parsed 2331 protein atoms and 2 ligands from 3lck.pdb
+2025-07-01 11:06:31,023 - ProteinFeatureExtractor - INFO - Ligands found: PTR(A:394), PP2(:1904)
+2025-07-01 11:06:31,023 - ProteinFeatureExtractor - INFO - Generating SAS points for 3lck.pdb using BioPython
+2025-07-01 11:06:31,040 - ProteinFeatureExtractor - INFO - Parsed 2893 protein atoms and 1 ligands from 1gcg.pdb
+2025-07-01 11:06:31,041 - ProteinFeatureExtractor - INFO - Ligands found: GAL(:350)
+2025-07-01 11:06:31,041 - ProteinFeatureExtractor - INFO - Generating SAS points for 1gcg.pdb using BioPython
+2025-07-01 11:06:31,410 - ProteinFeatureExtractor - INFO - Generated 2680 SAS points for 1krn.pdb using BioPython
+2025-07-01 11:06:31,410 - ProteinFeatureExtractor - INFO - Calculating features for 2680 SAS points in 1krn.pdb
+2025-07-01 11:06:31,446 - ProteinFeatureExtractor - INFO - Generated 2645 SAS points for 2pk4.pdb using BioPython
+2025-07-01 11:06:31,446 - ProteinFeatureExtractor - INFO - Calculating features for 2645 SAS points in 2pk4.pdb
+2025-07-01 11:06:31,556 - ProteinFeatureExtractor - INFO - Generated 3399 SAS points for 3mth.pdb using BioPython
+2025-07-01 11:06:31,556 - ProteinFeatureExtractor - INFO - Calculating features for 3399 SAS points in 3mth.pdb
+2025-07-01 11:06:31,617 - ProteinFeatureExtractor - INFO - Generated 3978 SAS points for 1stp.pdb using BioPython
+2025-07-01 11:06:31,618 - ProteinFeatureExtractor - INFO - Calculating features for 3978 SAS points in 1stp.pdb
+2025-07-01 11:06:31,636 - ProteinFeatureExtractor - INFO - Generated 4082 SAS points for 1swb.pdb using BioPython
+2025-07-01 11:06:31,637 - ProteinFeatureExtractor - INFO - Calculating features for 4082 SAS points in 1swb.pdb
+2025-07-01 11:06:31,641 - ProteinFeatureExtractor - INFO - Generated 3978 SAS points for 1rob.pdb using BioPython
+2025-07-01 11:06:31,641 - ProteinFeatureExtractor - INFO - Calculating features for 3978 SAS points in 1rob.pdb
+2025-07-01 11:06:31,675 - ProteinFeatureExtractor - INFO - Generated 3844 SAS points for 3p2p.pdb using BioPython
+2025-07-01 11:06:31,675 - ProteinFeatureExtractor - INFO - Calculating features for 3844 SAS points in 3p2p.pdb
+2025-07-01 11:06:31,695 - ProteinFeatureExtractor - INFO - Generated 3923 SAS points for 1hel.pdb using BioPython
+2025-07-01 11:06:31,695 - ProteinFeatureExtractor - INFO - Calculating features for 3923 SAS points in 1hel.pdb
+2025-07-01 11:06:31,701 - ProteinFeatureExtractor - INFO - Generated 3944 SAS points for 1ifb.pdb using BioPython
+2025-07-01 11:06:31,702 - ProteinFeatureExtractor - INFO - Calculating features for 3944 SAS points in 1ifb.pdb
+2025-07-01 11:06:31,714 - ProteinFeatureExtractor - INFO - Generated 3959 SAS points for 1hew.pdb using BioPython
+2025-07-01 11:06:31,714 - ProteinFeatureExtractor - INFO - Calculating features for 3959 SAS points in 1hew.pdb
+2025-07-01 11:06:31,733 - ProteinFeatureExtractor - INFO - Generated 3932 SAS points for 2ifb.pdb using BioPython
+2025-07-01 11:06:31,734 - ProteinFeatureExtractor - INFO - Calculating features for 3932 SAS points in 2ifb.pdb
+2025-07-01 11:06:31,745 - ProteinFeatureExtractor - INFO - Generated 4119 SAS points for 1snc.pdb using BioPython
+2025-07-01 11:06:31,745 - ProteinFeatureExtractor - INFO - Calculating features for 4119 SAS points in 1snc.pdb
+2025-07-01 11:06:31,752 - ProteinFeatureExtractor - INFO - Generated 4417 SAS points for 1stn.pdb using BioPython
+2025-07-01 11:06:31,752 - ProteinFeatureExtractor - INFO - Calculating features for 4417 SAS points in 1stn.pdb
+2025-07-01 11:06:31,874 - ProteinFeatureExtractor - INFO - Generated 4583 SAS points for 1hfc.pdb using BioPython
+2025-07-01 11:06:31,875 - ProteinFeatureExtractor - INFO - Calculating features for 4583 SAS points in 1hfc.pdb
+2025-07-01 11:06:31,973 - ProteinFeatureExtractor - INFO - Generated 5408 SAS points for 1rbp.pdb using BioPython
+2025-07-01 11:06:31,975 - ProteinFeatureExtractor - INFO - Calculating features for 5408 SAS points in 1rbp.pdb
+2025-07-01 11:06:31,996 - ProteinFeatureExtractor - INFO - Generated 5237 SAS points for 1brq.pdb using BioPython
+2025-07-01 11:06:31,996 - ProteinFeatureExtractor - INFO - Calculating features for 5237 SAS points in 1brq.pdb
+2025-07-01 11:06:32,049 - ProteinFeatureExtractor - INFO - Generated 6059 SAS points for 1hsi.pdb using BioPython
+2025-07-01 11:06:32,051 - ProteinFeatureExtractor - INFO - Calculating features for 6059 SAS points in 1hsi.pdb
+2025-07-01 11:06:32,054 - ProteinFeatureExtractor - INFO - Generated 3730 SAS points for 1cge.pdb using BioPython
+2025-07-01 11:06:32,056 - ProteinFeatureExtractor - INFO - Calculating features for 3730 SAS points in 1cge.pdb
+2025-07-01 11:06:32,060 - ProteinFeatureExtractor - INFO - Generated 5531 SAS points for 1ida.pdb using BioPython
+2025-07-01 11:06:32,061 - ProteinFeatureExtractor - INFO - Calculating features for 5531 SAS points in 1ida.pdb
+2025-07-01 11:06:32,099 - ProteinFeatureExtractor - INFO - Generated 5711 SAS points for 3phv.pdb using BioPython
+2025-07-01 11:06:32,100 - ProteinFeatureExtractor - INFO - Calculating features for 5711 SAS points in 3phv.pdb
+2025-07-01 11:06:32,108 - ProteinFeatureExtractor - INFO - Generated 5359 SAS points for 1mtw.pdb using BioPython
+2025-07-01 11:06:32,108 - ProteinFeatureExtractor - INFO - Calculating features for 5359 SAS points in 1mtw.pdb
+2025-07-01 11:06:32,134 - ProteinFeatureExtractor - INFO - Generated 5243 SAS points for 3ptb.pdb using BioPython
+2025-07-01 11:06:32,134 - ProteinFeatureExtractor - INFO - Calculating features for 5243 SAS points in 3ptb.pdb
+2025-07-01 11:06:32,137 - ProteinFeatureExtractor - INFO - Generated 5340 SAS points for 3ptn.pdb using BioPython
+2025-07-01 11:06:32,138 - ProteinFeatureExtractor - INFO - Calculating features for 5340 SAS points in 3ptn.pdb
+2025-07-01 11:06:32,152 - ProteinFeatureExtractor - INFO - Generated 5604 SAS points for 1chg.pdb using BioPython
+2025-07-01 11:06:32,153 - ProteinFeatureExtractor - INFO - Calculating features for 5604 SAS points in 1chg.pdb
+2025-07-01 11:06:32,163 - ProteinFeatureExtractor - INFO - Generated 5314 SAS points for 2tga.pdb using BioPython
+2025-07-01 11:06:32,164 - ProteinFeatureExtractor - INFO - Calculating features for 5314 SAS points in 2tga.pdb
+2025-07-01 11:06:32,202 - ProteinFeatureExtractor - INFO - Generated 5743 SAS points for 1a6u.pdb using BioPython
+2025-07-01 11:06:32,204 - ProteinFeatureExtractor - INFO - Calculating features for 5743 SAS points in 1a6u.pdb
+2025-07-01 11:06:32,203 - ProteinFeatureExtractor - INFO - Generated 5812 SAS points for 3gch.pdb using BioPython
+2025-07-01 11:06:32,204 - ProteinFeatureExtractor - INFO - Calculating features for 5812 SAS points in 3gch.pdb
+2025-07-01 11:06:32,225 - ProteinFeatureExtractor - INFO - Generated 5797 SAS points for 1a6w.pdb using BioPython
+2025-07-01 11:06:32,226 - ProteinFeatureExtractor - INFO - Calculating features for 5797 SAS points in 1a6w.pdb
+2025-07-01 11:06:32,246 - ProteinFeatureExtractor - INFO - Generated 5827 SAS points for 1srf.pdb using BioPython
+2025-07-01 11:06:32,246 - ProteinFeatureExtractor - INFO - Generated 5943 SAS points for 1pts.pdb using BioPython
+2025-07-01 11:06:32,247 - ProteinFeatureExtractor - INFO - Calculating features for 5827 SAS points in 1srf.pdb
+2025-07-01 11:06:32,247 - ProteinFeatureExtractor - INFO - Calculating features for 5943 SAS points in 1pts.pdb
+2025-07-01 11:06:32,270 - ProteinFeatureExtractor - INFO - Generated 6100 SAS points for 1esa.pdb using BioPython
+2025-07-01 11:06:32,271 - ProteinFeatureExtractor - INFO - Calculating features for 6100 SAS points in 1esa.pdb
+2025-07-01 11:06:32,302 - ProteinFeatureExtractor - INFO - Generated 6045 SAS points for 2ctv.pdb using BioPython
+2025-07-01 11:06:32,302 - ProteinFeatureExtractor - INFO - Calculating features for 6045 SAS points in 2ctv.pdb
+2025-07-01 11:06:32,349 - ProteinFeatureExtractor - INFO - Generated 6543 SAS points for 1ypi.pdb using BioPython
+2025-07-01 11:06:32,350 - ProteinFeatureExtractor - INFO - Calculating features for 6543 SAS points in 1ypi.pdb
+2025-07-01 11:06:32,372 - ProteinFeatureExtractor - INFO - Generated 6354 SAS points for 2ypi.pdb using BioPython
+2025-07-01 11:06:32,372 - ProteinFeatureExtractor - INFO - Calculating features for 6354 SAS points in 2ypi.pdb
+2025-07-01 11:06:32,376 - ProteinFeatureExtractor - INFO - Generated 6132 SAS points for 1inc.pdb using BioPython
+2025-07-01 11:06:32,376 - ProteinFeatureExtractor - INFO - Calculating features for 6132 SAS points in 1inc.pdb
+2025-07-01 11:06:32,380 - ProteinFeatureExtractor - INFO - Generated 6474 SAS points for 1ahc.pdb using BioPython
+2025-07-01 11:06:32,380 - ProteinFeatureExtractor - INFO - Calculating features for 6474 SAS points in 1ahc.pdb
+2025-07-01 11:06:32,435 - ProteinFeatureExtractor - INFO - Generated 6470 SAS points for 1djb.pdb using BioPython
+2025-07-01 11:06:32,435 - ProteinFeatureExtractor - INFO - Calculating features for 6470 SAS points in 1djb.pdb
+2025-07-01 11:06:32,458 - ProteinFeatureExtractor - INFO - Generated 6268 SAS points for 1blh.pdb using BioPython
+2025-07-01 11:06:32,458 - ProteinFeatureExtractor - INFO - Calculating features for 6268 SAS points in 1blh.pdb
+2025-07-01 11:06:32,470 - ProteinFeatureExtractor - INFO - Generated 6845 SAS points for 1ime.pdb using BioPython
+2025-07-01 11:06:32,471 - ProteinFeatureExtractor - INFO - Calculating features for 6845 SAS points in 1ime.pdb
+2025-07-01 11:06:32,481 - ProteinFeatureExtractor - INFO - Generated 6655 SAS points for 1okm.pdb using BioPython
+2025-07-01 11:06:32,482 - ProteinFeatureExtractor - INFO - Calculating features for 6655 SAS points in 1okm.pdb
+2025-07-01 11:06:32,483 - ProteinFeatureExtractor - INFO - Generated 6906 SAS points for 1imb.pdb using BioPython
+2025-07-01 11:06:32,484 - ProteinFeatureExtractor - INFO - Calculating features for 6906 SAS points in 1imb.pdb
+2025-07-01 11:06:32,506 - ProteinFeatureExtractor - INFO - Generated 6658 SAS points for 2cba.pdb using BioPython
+2025-07-01 11:06:32,506 - ProteinFeatureExtractor - INFO - Calculating features for 6658 SAS points in 2cba.pdb
+2025-07-01 11:06:32,566 - ProteinFeatureExtractor - INFO - Generated 7350 SAS points for 1bid.pdb using BioPython
+2025-07-01 11:06:32,566 - ProteinFeatureExtractor - INFO - Calculating features for 7350 SAS points in 1bid.pdb
+2025-07-01 11:06:32,577 - ProteinFeatureExtractor - INFO - Generated 7363 SAS points for 3tms.pdb using BioPython
+2025-07-01 11:06:32,578 - ProteinFeatureExtractor - INFO - Calculating features for 7363 SAS points in 3tms.pdb
+2025-07-01 11:06:32,587 - ProteinFeatureExtractor - INFO - Generated 7621 SAS points for 1qpe.pdb using BioPython
+2025-07-01 11:06:32,587 - ProteinFeatureExtractor - INFO - Calculating features for 7621 SAS points in 1qpe.pdb
+2025-07-01 11:06:32,620 - ProteinFeatureExtractor - INFO - Generated 7779 SAS points for 1ulb.pdb using BioPython
+2025-07-01 11:06:32,621 - ProteinFeatureExtractor - INFO - Calculating features for 7779 SAS points in 1ulb.pdb
+2025-07-01 11:06:32,654 - ProteinFeatureExtractor - INFO - Generated 7884 SAS points for 1ula.pdb using BioPython
+2025-07-01 11:06:32,654 - ProteinFeatureExtractor - INFO - Calculating features for 7884 SAS points in 1ula.pdb
+2025-07-01 11:06:32,656 - ProteinFeatureExtractor - INFO - Generated 6664 SAS points for 2h4n.pdb using BioPython
+2025-07-01 11:06:32,657 - ProteinFeatureExtractor - INFO - Calculating features for 6664 SAS points in 2h4n.pdb
+2025-07-01 11:06:32,679 - ProteinFeatureExtractor - INFO - Generated 7173 SAS points for 1hxf.pdb using BioPython
+2025-07-01 11:06:32,680 - ProteinFeatureExtractor - INFO - Calculating features for 7173 SAS points in 1hxf.pdb
+2025-07-01 11:06:32,692 - ProteinFeatureExtractor - INFO - Generated 7448 SAS points for 1apu.pdb using BioPython
+2025-07-01 11:06:32,692 - ProteinFeatureExtractor - INFO - Generated 7763 SAS points for 3lck.pdb using BioPython
+2025-07-01 11:06:32,692 - ProteinFeatureExtractor - INFO - Calculating features for 7448 SAS points in 1apu.pdb
+2025-07-01 11:06:32,692 - ProteinFeatureExtractor - INFO - Calculating features for 7763 SAS points in 3lck.pdb
+2025-07-01 11:06:32,693 - ProteinFeatureExtractor - INFO - Generated 7297 SAS points for 1npc.pdb using BioPython
+2025-07-01 11:06:32,693 - ProteinFeatureExtractor - INFO - Calculating features for 7297 SAS points in 1npc.pdb
+2025-07-01 11:06:32,707 - ProteinFeatureExtractor - INFO - Generated 7713 SAS points for 1dwd.pdb using BioPython
+2025-07-01 11:06:32,707 - ProteinFeatureExtractor - INFO - Calculating features for 7713 SAS points in 1dwd.pdb
+2025-07-01 11:06:32,716 - ProteinFeatureExtractor - INFO - Generated 4735 SAS points for 1mrg.pdb using BioPython
+2025-07-01 11:06:32,717 - ProteinFeatureExtractor - INFO - Calculating features for 4735 SAS points in 1mrg.pdb
+2025-07-01 11:06:32,730 - ProteinFeatureExtractor - INFO - Generated 7647 SAS points for 1pso.pdb using BioPython
+2025-07-01 11:06:32,730 - ProteinFeatureExtractor - INFO - Calculating features for 7647 SAS points in 1pso.pdb
+2025-07-01 11:06:32,741 - ProteinFeatureExtractor - INFO - Generated 7286 SAS points for 1hyt.pdb using BioPython
+2025-07-01 11:06:32,741 - ProteinFeatureExtractor - INFO - Calculating features for 7286 SAS points in 1hyt.pdb
+2025-07-01 11:06:32,761 - ProteinFeatureExtractor - INFO - Generated 6971 SAS points for 1l3f.pdb using BioPython
+2025-07-01 11:06:32,761 - ProteinFeatureExtractor - INFO - Calculating features for 6971 SAS points in 1l3f.pdb
+2025-07-01 11:06:32,765 - ProteinFeatureExtractor - INFO - Generated 7802 SAS points for 1psn.pdb using BioPython
+2025-07-01 11:06:32,766 - ProteinFeatureExtractor - INFO - Calculating features for 7802 SAS points in 1psn.pdb
+2025-07-01 11:06:32,785 - ProteinFeatureExtractor - INFO - Generated 6925 SAS points for 2ctb.pdb using BioPython
+2025-07-01 11:06:32,785 - ProteinFeatureExtractor - INFO - Calculating features for 6925 SAS points in 2ctb.pdb
+2025-07-01 11:06:32,794 - ProteinFeatureExtractor - INFO - Generated 7348 SAS points for 2tmn.pdb using BioPython
+2025-07-01 11:06:32,794 - ProteinFeatureExtractor - INFO - Calculating features for 7348 SAS points in 2tmn.pdb
+2025-07-01 11:06:32,804 - ProteinFeatureExtractor - INFO - Generated 6754 SAS points for 2ctc.pdb using BioPython
+2025-07-01 11:06:32,804 - ProteinFeatureExtractor - INFO - Calculating features for 6754 SAS points in 2ctc.pdb
+2025-07-01 11:06:32,852 - ProteinFeatureExtractor - INFO - Generated 7750 SAS points for 1rne.pdb using BioPython
+2025-07-01 11:06:32,852 - ProteinFeatureExtractor - INFO - Calculating features for 7750 SAS points in 1rne.pdb
+2025-07-01 11:06:32,973 - ProteinFeatureExtractor - INFO - Generated 7960 SAS points for 1bbs.pdb using BioPython
+2025-07-01 11:06:32,974 - ProteinFeatureExtractor - INFO - Calculating features for 7960 SAS points in 1bbs.pdb
+2025-07-01 11:06:32,995 - ProteinFeatureExtractor - INFO - Generated 8939 SAS points for 1cdo.pdb using BioPython
+2025-07-01 11:06:32,996 - ProteinFeatureExtractor - INFO - Calculating features for 8939 SAS points in 1cdo.pdb
+2025-07-01 11:06:33,180 - ProteinFeatureExtractor - INFO - Generated 5889 SAS points for 1gca.pdb using BioPython
+2025-07-01 11:06:33,181 - ProteinFeatureExtractor - INFO - Calculating features for 5889 SAS points in 1gca.pdb
+2025-07-01 11:06:33,191 - ProteinFeatureExtractor - INFO - Generated 5817 SAS points for 1gcg.pdb using BioPython
+2025-07-01 11:06:33,192 - ProteinFeatureExtractor - INFO - Calculating features for 5817 SAS points in 1gcg.pdb
+2025-07-01 11:06:33,196 - ProteinFeatureExtractor - INFO - Generated 6494 SAS points for 1fbp.pdb using BioPython
+2025-07-01 11:06:33,196 - ProteinFeatureExtractor - INFO - Calculating features for 6494 SAS points in 1fbp.pdb
+2025-07-01 11:06:33,216 - ProteinFeatureExtractor - INFO - Generated 6715 SAS points for 2fbp.pdb using BioPython
+2025-07-01 11:06:33,217 - ProteinFeatureExtractor - INFO - Calculating features for 6715 SAS points in 2fbp.pdb
+2025-07-01 11:06:33,328 - ProteinFeatureExtractor - INFO - Generated 9391 SAS points for 1phd.pdb using BioPython
+2025-07-01 11:06:33,328 - ProteinFeatureExtractor - INFO - Calculating features for 9391 SAS points in 1phd.pdb
+2025-07-01 11:06:33,343 - ProteinFeatureExtractor - INFO - Generated 9207 SAS points for 1pdy.pdb using BioPython
+2025-07-01 11:06:33,344 - ProteinFeatureExtractor - INFO - Calculating features for 9207 SAS points in 1pdy.pdb
+2025-07-01 11:06:33,354 - ProteinFeatureExtractor - INFO - Generated 11045 SAS points for 1igj.pdb using BioPython
+2025-07-01 11:06:33,355 - ProteinFeatureExtractor - INFO - Calculating features for 11045 SAS points in 1igj.pdb
+2025-07-01 11:06:33,374 - ProteinFeatureExtractor - INFO - Generated 9351 SAS points for 1phc.pdb using BioPython
+2025-07-01 11:06:33,374 - ProteinFeatureExtractor - INFO - Calculating features for 9351 SAS points in 1phc.pdb
+2025-07-01 11:06:33,388 - ProteinFeatureExtractor - INFO - Generated 9349 SAS points for 1pdz.pdb using BioPython
+2025-07-01 11:06:33,389 - ProteinFeatureExtractor - INFO - Calculating features for 9349 SAS points in 1pdz.pdb
+2025-07-01 11:06:33,446 - ProteinFeatureExtractor - INFO - Generated 11736 SAS points for 1a4j.pdb using BioPython
+2025-07-01 11:06:33,447 - ProteinFeatureExtractor - INFO - Calculating features for 11736 SAS points in 1a4j.pdb
+2025-07-01 11:06:33,786 - ProteinFeatureExtractor - INFO - Generated 10255 SAS points for 1byb.pdb using BioPython
+2025-07-01 11:06:33,787 - ProteinFeatureExtractor - INFO - Calculating features for 10255 SAS points in 1byb.pdb
+2025-07-01 11:06:33,788 - ProteinFeatureExtractor - INFO - Generated 10601 SAS points for 1bya.pdb using BioPython
+2025-07-01 11:06:33,789 - ProteinFeatureExtractor - INFO - Calculating features for 10601 SAS points in 1bya.pdb
+2025-07-01 11:06:33,880 - ProteinFeatureExtractor - INFO - Generated 10587 SAS points for 1acj.pdb using BioPython
+2025-07-01 11:06:33,881 - ProteinFeatureExtractor - INFO - Calculating features for 10587 SAS points in 1acj.pdb
+2025-07-01 11:06:33,960 - ProteinFeatureExtractor - INFO - Generated 6632 SAS points for 1nna.pdb using BioPython
+2025-07-01 11:06:33,960 - ProteinFeatureExtractor - INFO - Calculating features for 6632 SAS points in 1nna.pdb
+2025-07-01 11:06:34,011 - ProteinFeatureExtractor - INFO - Generated 11584 SAS points for 1qif.pdb using BioPython
+2025-07-01 11:06:34,011 - ProteinFeatureExtractor - INFO - Calculating features for 11584 SAS points in 1qif.pdb
+2025-07-01 11:06:34,054 - ProteinFeatureExtractor - INFO - Generated 6590 SAS points for 1ivd.pdb using BioPython
+2025-07-01 11:06:34,055 - ProteinFeatureExtractor - INFO - Calculating features for 6590 SAS points in 1ivd.pdb
+2025-07-01 11:07:03,048 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2pk4.pdb with threshold 4.0Å
+2025-07-01 11:07:03,050 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2pk4.pdb
+2025-07-01 11:07:03,280 - ProteinFeatureExtractor - INFO - Classified 76 out of 2645 SAS points (2.87%) as binding sites in 2pk4.pdb
+2025-07-01 11:07:03,934 - ProteinFeatureExtractor - INFO - Exported 2645 feature rows to output_bu48/2pk4.pdb_features.csv
+2025-07-01 11:07:03,937 - ProteinFeatureExtractor - INFO - Processed 2pk4.pdb in 33.03 seconds
+2025-07-01 11:07:03,947 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:04,000 - ProteinFeatureExtractor - INFO - Parsed 2029 protein atoms and 1 ligands from 4ca2.pdb
+2025-07-01 11:07:04,001 - ProteinFeatureExtractor - INFO - Ligands found: SAB(:555)
+2025-07-01 11:07:04,001 - ProteinFeatureExtractor - INFO - Generating SAS points for 4ca2.pdb using BioPython
+2025-07-01 11:07:05,503 - ProteinFeatureExtractor - INFO - Generated 6466 SAS points for 4ca2.pdb using BioPython
+2025-07-01 11:07:05,503 - ProteinFeatureExtractor - INFO - Calculating features for 6466 SAS points in 4ca2.pdb
+2025-07-01 11:07:06,456 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1krn.pdb with threshold 4.0Å
+2025-07-01 11:07:06,458 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1krn.pdb
+2025-07-01 11:07:06,691 - ProteinFeatureExtractor - INFO - Classified 74 out of 2680 SAS points (2.76%) as binding sites in 1krn.pdb
+2025-07-01 11:07:07,010 - ProteinFeatureExtractor - INFO - Exported 2680 feature rows to output_bu48/1krn.pdb_features.csv
+2025-07-01 11:07:07,014 - ProteinFeatureExtractor - INFO - Processed 1krn.pdb in 36.12 seconds
+2025-07-01 11:07:07,023 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:07,060 - ProteinFeatureExtractor - INFO - Parsed 1258 protein atoms and 1 ligands from 4dfr.pdb
+2025-07-01 11:07:07,061 - ProteinFeatureExtractor - INFO - Ligands found: MTX(A:1)
+2025-07-01 11:07:07,061 - ProteinFeatureExtractor - INFO - Generating SAS points for 4dfr.pdb using BioPython
+2025-07-01 11:07:08,023 - ProteinFeatureExtractor - INFO - Generated 4822 SAS points for 4dfr.pdb using BioPython
+2025-07-01 11:07:08,024 - ProteinFeatureExtractor - INFO - Calculating features for 4822 SAS points in 4dfr.pdb
+2025-07-01 11:07:24,217 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3mth.pdb with threshold 4.0Å
+2025-07-01 11:07:24,218 - ProteinFeatureExtractor - INFO - Found 1 ligands in 3mth.pdb
+2025-07-01 11:07:24,588 - ProteinFeatureExtractor - INFO - Classified 95 out of 3399 SAS points (2.79%) as binding sites in 3mth.pdb
+2025-07-01 11:07:24,999 - ProteinFeatureExtractor - INFO - Exported 3399 feature rows to output_bu48/3mth.pdb_features.csv
+2025-07-01 11:07:25,003 - ProteinFeatureExtractor - INFO - Processed 3mth.pdb in 54.10 seconds
+2025-07-01 11:07:25,014 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:25,048 - ProteinFeatureExtractor - INFO - Parsed 1520 protein atoms and 2 ligands from 4phv.pdb
+2025-07-01 11:07:25,049 - ProteinFeatureExtractor - INFO - Ligands found: VAC(I:1), VAC(I:2)
+2025-07-01 11:07:25,049 - ProteinFeatureExtractor - INFO - Generating SAS points for 4phv.pdb using BioPython
+2025-07-01 11:07:26,282 - ProteinFeatureExtractor - INFO - Generated 5406 SAS points for 4phv.pdb using BioPython
+2025-07-01 11:07:26,282 - ProteinFeatureExtractor - INFO - Calculating features for 5406 SAS points in 4phv.pdb
+2025-07-01 11:07:40,125 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1stp.pdb with threshold 4.0Å
+2025-07-01 11:07:40,127 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1stp.pdb
+2025-07-01 11:07:40,742 - ProteinFeatureExtractor - INFO - Classified 78 out of 3978 SAS points (1.96%) as binding sites in 1stp.pdb
+2025-07-01 11:07:41,201 - ProteinFeatureExtractor - INFO - Exported 3978 feature rows to output_bu48/1stp.pdb_features.csv
+2025-07-01 11:07:41,205 - ProteinFeatureExtractor - INFO - Processed 1stp.pdb in 70.30 seconds
+2025-07-01 11:07:41,220 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:41,260 - ProteinFeatureExtractor - INFO - Parsed 1809 protein atoms and 1 ligands from 5cna.pdb
+2025-07-01 11:07:41,260 - ProteinFeatureExtractor - INFO - Ligands found: MMA(A:238)
+2025-07-01 11:07:41,260 - ProteinFeatureExtractor - INFO - Generating SAS points for 5cna.pdb using BioPython
+2025-07-01 11:07:41,803 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3p2p.pdb with threshold 4.0Å
+2025-07-01 11:07:41,804 - ProteinFeatureExtractor - INFO - Found 1 ligands in 3p2p.pdb
+2025-07-01 11:07:42,606 - ProteinFeatureExtractor - INFO - Generated 6098 SAS points for 5cna.pdb using BioPython
+2025-07-01 11:07:42,607 - ProteinFeatureExtractor - INFO - Calculating features for 6098 SAS points in 5cna.pdb
+2025-07-01 11:07:42,853 - ProteinFeatureExtractor - INFO - Classified 126 out of 3844 SAS points (3.28%) as binding sites in 3p2p.pdb
+2025-07-01 11:07:42,991 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1swb.pdb with threshold 4.0Å
+2025-07-01 11:07:42,992 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1swb.pdb
+2025-07-01 11:07:43,336 - ProteinFeatureExtractor - INFO - Exported 3844 feature rows to output_bu48/3p2p.pdb_features.csv
+2025-07-01 11:07:43,341 - ProteinFeatureExtractor - INFO - Processed 3p2p.pdb in 72.44 seconds
+2025-07-01 11:07:43,357 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:43,428 - ProteinFeatureExtractor - INFO - Parsed 2437 protein atoms and 1 ligands from 5cpa.pdb
+2025-07-01 11:07:43,428 - ProteinFeatureExtractor - INFO - Ligands found: FVF(:309)
+2025-07-01 11:07:43,429 - ProteinFeatureExtractor - INFO - Generating SAS points for 5cpa.pdb using BioPython
+2025-07-01 11:07:43,620 - ProteinFeatureExtractor - INFO - Classified 76 out of 4082 SAS points (1.86%) as binding sites in 1swb.pdb
+2025-07-01 11:07:44,100 - ProteinFeatureExtractor - INFO - Exported 4082 feature rows to output_bu48/1swb.pdb_features.csv
+2025-07-01 11:07:44,105 - ProteinFeatureExtractor - INFO - Processed 1swb.pdb in 73.20 seconds
+2025-07-01 11:07:44,119 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:44,156 - ProteinFeatureExtractor - INFO - Parsed 1220 protein atoms and 1 ligands from 5dfr.pdb
+2025-07-01 11:07:44,156 - ProteinFeatureExtractor - INFO - Ligands found: MTX(A:1)
+2025-07-01 11:07:44,156 - ProteinFeatureExtractor - INFO - Generating SAS points for 5dfr.pdb using BioPython
+2025-07-01 11:07:44,444 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1rob.pdb with threshold 4.0Å
+2025-07-01 11:07:44,444 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1rob.pdb
+2025-07-01 11:07:45,099 - ProteinFeatureExtractor - INFO - Generated 4877 SAS points for 5dfr.pdb using BioPython
+2025-07-01 11:07:45,100 - ProteinFeatureExtractor - INFO - Calculating features for 4877 SAS points in 5dfr.pdb
+2025-07-01 11:07:45,241 - ProteinFeatureExtractor - INFO - Classified 127 out of 3978 SAS points (3.19%) as binding sites in 1rob.pdb
+2025-07-01 11:07:45,284 - ProteinFeatureExtractor - INFO - Generated 7022 SAS points for 5cpa.pdb using BioPython
+2025-07-01 11:07:45,284 - ProteinFeatureExtractor - INFO - Calculating features for 7022 SAS points in 5cpa.pdb
+2025-07-01 11:07:45,703 - ProteinFeatureExtractor - INFO - Exported 3978 feature rows to output_bu48/1rob.pdb_features.csv
+2025-07-01 11:07:45,708 - ProteinFeatureExtractor - INFO - Processed 1rob.pdb in 74.81 seconds
+2025-07-01 11:07:45,721 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:45,746 - ProteinFeatureExtractor - INFO - Parsed 931 protein atoms and 1 ligands from 5p2p.pdb
+2025-07-01 11:07:45,747 - ProteinFeatureExtractor - INFO - Ligands found: DHG(A:126)
+2025-07-01 11:07:45,747 - ProteinFeatureExtractor - INFO - Generating SAS points for 5p2p.pdb using BioPython
+2025-07-01 11:07:46,495 - ProteinFeatureExtractor - INFO - Generated 3960 SAS points for 5p2p.pdb using BioPython
+2025-07-01 11:07:46,495 - ProteinFeatureExtractor - INFO - Calculating features for 3960 SAS points in 5p2p.pdb
+2025-07-01 11:07:47,708 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hew.pdb with threshold 4.0Å
+2025-07-01 11:07:47,709 - ProteinFeatureExtractor - INFO - Found 3 ligands in 1hew.pdb
+2025-07-01 11:07:47,890 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hel.pdb with threshold 4.0Å
+2025-07-01 11:07:47,892 - ProteinFeatureExtractor - INFO - Found 3 ligands in 1hel.pdb
+2025-07-01 11:07:49,339 - ProteinFeatureExtractor - INFO - Classified 285 out of 3959 SAS points (7.20%) as binding sites in 1hew.pdb
+2025-07-01 11:07:49,516 - ProteinFeatureExtractor - INFO - Classified 269 out of 3923 SAS points (6.86%) as binding sites in 1hel.pdb
+2025-07-01 11:07:49,804 - ProteinFeatureExtractor - INFO - Exported 3959 feature rows to output_bu48/1hew.pdb_features.csv
+2025-07-01 11:07:49,811 - ProteinFeatureExtractor - INFO - Processed 1hew.pdb in 78.92 seconds
+2025-07-01 11:07:49,830 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:49,859 - ProteinFeatureExtractor - INFO - Parsed 788 protein atoms and 1 ligands from 6ins.pdb
+2025-07-01 11:07:49,859 - ProteinFeatureExtractor - INFO - Ligands found: MPB(:200)
+2025-07-01 11:07:49,859 - ProteinFeatureExtractor - INFO - Generating SAS points for 6ins.pdb using BioPython
+2025-07-01 11:07:49,969 - ProteinFeatureExtractor - INFO - Exported 3923 feature rows to output_bu48/1hel.pdb_features.csv
+2025-07-01 11:07:49,973 - ProteinFeatureExtractor - INFO - Processed 1hel.pdb in 79.08 seconds
+2025-07-01 11:07:49,987 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:50,028 - ProteinFeatureExtractor - INFO - Parsed 1860 protein atoms and 1 ligands from 6rsa.pdb
+2025-07-01 11:07:50,028 - ProteinFeatureExtractor - INFO - Ligands found: UVC(:1)
+2025-07-01 11:07:50,029 - ProteinFeatureExtractor - INFO - Generating SAS points for 6rsa.pdb using BioPython
+2025-07-01 11:07:50,483 - ProteinFeatureExtractor - INFO - Generated 3488 SAS points for 6ins.pdb using BioPython
+2025-07-01 11:07:50,483 - ProteinFeatureExtractor - INFO - Calculating features for 3488 SAS points in 6ins.pdb
+2025-07-01 11:07:51,838 - ProteinFeatureExtractor - INFO - Generated 2735 SAS points for 6rsa.pdb using BioPython
+2025-07-01 11:07:51,839 - ProteinFeatureExtractor - INFO - Calculating features for 2735 SAS points in 6rsa.pdb
+2025-07-01 11:07:51,891 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2ifb.pdb with threshold 4.0Å
+2025-07-01 11:07:51,892 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2ifb.pdb
+2025-07-01 11:07:52,576 - ProteinFeatureExtractor - INFO - Classified 41 out of 3932 SAS points (1.04%) as binding sites in 2ifb.pdb
+2025-07-01 11:07:52,685 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ifb.pdb with threshold 4.0Å
+2025-07-01 11:07:52,686 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ifb.pdb
+2025-07-01 11:07:53,045 - ProteinFeatureExtractor - INFO - Exported 3932 feature rows to output_bu48/2ifb.pdb_features.csv
+2025-07-01 11:07:53,050 - ProteinFeatureExtractor - INFO - Processed 2ifb.pdb in 82.15 seconds
+2025-07-01 11:07:53,063 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:53,112 - ProteinFeatureExtractor - INFO - Parsed 2437 protein atoms and 1 ligands from 7cpa.pdb
+2025-07-01 11:07:53,112 - ProteinFeatureExtractor - INFO - Ligands found: FVF(:309)
+2025-07-01 11:07:53,112 - ProteinFeatureExtractor - INFO - Generating SAS points for 7cpa.pdb using BioPython
+2025-07-01 11:07:53,363 - ProteinFeatureExtractor - INFO - Classified 46 out of 3944 SAS points (1.17%) as binding sites in 1ifb.pdb
+2025-07-01 11:07:53,838 - ProteinFeatureExtractor - INFO - Exported 3944 feature rows to output_bu48/1ifb.pdb_features.csv
+2025-07-01 11:07:53,843 - ProteinFeatureExtractor - INFO - Processed 1ifb.pdb in 82.95 seconds
+2025-07-01 11:07:53,856 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:53,883 - ProteinFeatureExtractor - INFO - Parsed 951 protein atoms and 1 ligands from 7rat.pdb
+2025-07-01 11:07:53,884 - ProteinFeatureExtractor - INFO - Ligands found: UVC(:1)
+2025-07-01 11:07:53,884 - ProteinFeatureExtractor - INFO - Generating SAS points for 7rat.pdb using BioPython
+2025-07-01 11:07:54,661 - ProteinFeatureExtractor - INFO - Generated 3987 SAS points for 7rat.pdb using BioPython
+2025-07-01 11:07:54,662 - ProteinFeatureExtractor - INFO - Calculating features for 3987 SAS points in 7rat.pdb
+2025-07-01 11:07:54,933 - ProteinFeatureExtractor - INFO - Generated 6803 SAS points for 7cpa.pdb using BioPython
+2025-07-01 11:07:54,934 - ProteinFeatureExtractor - INFO - Calculating features for 6803 SAS points in 7cpa.pdb
+2025-07-01 11:07:56,645 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1snc.pdb with threshold 4.0Å
+2025-07-01 11:07:56,646 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1snc.pdb
+2025-07-01 11:07:57,631 - ProteinFeatureExtractor - INFO - Classified 161 out of 4119 SAS points (3.91%) as binding sites in 1snc.pdb
+2025-07-01 11:07:58,120 - ProteinFeatureExtractor - INFO - Exported 4119 feature rows to output_bu48/1snc.pdb_features.csv
+2025-07-01 11:07:58,125 - ProteinFeatureExtractor - INFO - Processed 1snc.pdb in 87.22 seconds
+2025-07-01 11:07:58,140 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:07:58,190 - ProteinFeatureExtractor - INFO - Parsed 2785 protein atoms and 1 ligands from 8adh.pdb
+2025-07-01 11:07:58,190 - ProteinFeatureExtractor - INFO - Ligands found: NAD(A:375)
+2025-07-01 11:07:58,191 - ProteinFeatureExtractor - INFO - Generating SAS points for 8adh.pdb using BioPython
+2025-07-01 11:08:00,260 - ProteinFeatureExtractor - INFO - Generated 8717 SAS points for 8adh.pdb using BioPython
+2025-07-01 11:08:00,261 - ProteinFeatureExtractor - INFO - Calculating features for 8717 SAS points in 8adh.pdb
+2025-07-01 11:08:03,434 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1stn.pdb with threshold 4.0Å
+2025-07-01 11:08:03,436 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1stn.pdb
+2025-07-01 11:08:04,498 - ProteinFeatureExtractor - INFO - Classified 175 out of 4417 SAS points (3.96%) as binding sites in 1stn.pdb
+2025-07-01 11:08:05,049 - ProteinFeatureExtractor - INFO - Exported 4417 feature rows to output_bu48/1stn.pdb_features.csv
+2025-07-01 11:08:05,055 - ProteinFeatureExtractor - INFO - Processed 1stn.pdb in 94.15 seconds
+2025-07-01 11:08:05,085 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:05,123 - ProteinFeatureExtractor - INFO - Parsed 951 protein atoms and 1 ligands from 8rat.pdb
+2025-07-01 11:08:05,123 - ProteinFeatureExtractor - INFO - Ligands found: C2P(:126)
+2025-07-01 11:08:05,123 - ProteinFeatureExtractor - INFO - Generating SAS points for 8rat.pdb using BioPython
+2025-07-01 11:08:05,883 - ProteinFeatureExtractor - INFO - Generated 3959 SAS points for 8rat.pdb using BioPython
+2025-07-01 11:08:05,883 - ProteinFeatureExtractor - INFO - Calculating features for 3959 SAS points in 8rat.pdb
+2025-07-01 11:08:19,263 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hfc.pdb with threshold 4.0Å
+2025-07-01 11:08:19,264 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1hfc.pdb
+2025-07-01 11:08:20,342 - ProteinFeatureExtractor - INFO - Classified 128 out of 4583 SAS points (2.79%) as binding sites in 1hfc.pdb
+2025-07-01 11:08:20,876 - ProteinFeatureExtractor - INFO - Exported 4583 feature rows to output_bu48/1hfc.pdb_features.csv
+2025-07-01 11:08:20,881 - ProteinFeatureExtractor - INFO - Processed 1hfc.pdb in 109.99 seconds
+2025-07-01 11:08:20,897 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:25,046 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1cge.pdb with threshold 4.0Å
+2025-07-01 11:08:25,047 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1cge.pdb
+2025-07-01 11:08:25,981 - ProteinFeatureExtractor - INFO - Classified 120 out of 3730 SAS points (3.22%) as binding sites in 1cge.pdb
+2025-07-01 11:08:26,420 - ProteinFeatureExtractor - INFO - Exported 3730 feature rows to output_bu48/1cge.pdb_features.csv
+2025-07-01 11:08:26,425 - ProteinFeatureExtractor - INFO - Processed 1cge.pdb in 115.53 seconds
+2025-07-01 11:08:26,439 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:44,123 - ProteinFeatureExtractor - INFO - Classifying binding sites for 6ins.pdb with threshold 4.0Å
+2025-07-01 11:08:44,123 - ProteinFeatureExtractor - INFO - Found 1 ligands in 6ins.pdb
+2025-07-01 11:08:44,499 - ProteinFeatureExtractor - INFO - Classified 94 out of 3488 SAS points (2.69%) as binding sites in 6ins.pdb
+2025-07-01 11:08:44,890 - ProteinFeatureExtractor - INFO - Exported 3488 feature rows to output_bu48/6ins.pdb_features.csv
+2025-07-01 11:08:44,895 - ProteinFeatureExtractor - INFO - Processed 6ins.pdb in 55.06 seconds
+2025-07-01 11:08:44,910 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:54,413 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1brq.pdb with threshold 4.0Å
+2025-07-01 11:08:54,413 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1brq.pdb
+2025-07-01 11:08:55,472 - ProteinFeatureExtractor - INFO - Classified 54 out of 5237 SAS points (1.03%) as binding sites in 1brq.pdb
+2025-07-01 11:08:56,087 - ProteinFeatureExtractor - INFO - Exported 5237 feature rows to output_bu48/1brq.pdb_features.csv
+2025-07-01 11:08:56,093 - ProteinFeatureExtractor - INFO - Processed 1brq.pdb in 145.20 seconds
+2025-07-01 11:08:56,112 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:57,722 - ProteinFeatureExtractor - INFO - Classifying binding sites for 4dfr.pdb with threshold 4.0Å
+2025-07-01 11:08:57,722 - ProteinFeatureExtractor - INFO - Found 1 ligands in 4dfr.pdb
+2025-07-01 11:08:57,831 - ProteinFeatureExtractor - INFO - Classifying binding sites for 5p2p.pdb with threshold 4.0Å
+2025-07-01 11:08:57,831 - ProteinFeatureExtractor - INFO - Found 1 ligands in 5p2p.pdb
+2025-07-01 11:08:58,412 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1rbp.pdb with threshold 4.0Å
+2025-07-01 11:08:58,412 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1rbp.pdb
+2025-07-01 11:08:58,475 - ProteinFeatureExtractor - INFO - Classified 155 out of 4822 SAS points (3.21%) as binding sites in 4dfr.pdb
+2025-07-01 11:08:58,764 - ProteinFeatureExtractor - INFO - Exported 4822 feature rows to output_bu48/4dfr.pdb_features.csv
+2025-07-01 11:08:58,769 - ProteinFeatureExtractor - INFO - Processed 4dfr.pdb in 111.75 seconds
+2025-07-01 11:08:58,778 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:58,890 - ProteinFeatureExtractor - INFO - Classified 118 out of 3960 SAS points (2.98%) as binding sites in 5p2p.pdb
+2025-07-01 11:08:59,329 - ProteinFeatureExtractor - INFO - Exported 3960 feature rows to output_bu48/5p2p.pdb_features.csv
+2025-07-01 11:08:59,334 - ProteinFeatureExtractor - INFO - Processed 5p2p.pdb in 73.61 seconds
+2025-07-01 11:08:59,348 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:08:59,523 - ProteinFeatureExtractor - INFO - Classified 45 out of 5408 SAS points (0.83%) as binding sites in 1rbp.pdb
+2025-07-01 11:09:00,216 - ProteinFeatureExtractor - INFO - Exported 5408 feature rows to output_bu48/1rbp.pdb_features.csv
+2025-07-01 11:09:00,222 - ProteinFeatureExtractor - INFO - Processed 1rbp.pdb in 149.32 seconds
+2025-07-01 11:09:00,243 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:07,883 - ProteinFeatureExtractor - INFO - Classifying binding sites for 7rat.pdb with threshold 4.0Å
+2025-07-01 11:09:07,883 - ProteinFeatureExtractor - INFO - Found 1 ligands in 7rat.pdb
+2025-07-01 11:09:08,640 - ProteinFeatureExtractor - INFO - Classifying binding sites for 6rsa.pdb with threshold 4.0Å
+2025-07-01 11:09:08,640 - ProteinFeatureExtractor - INFO - Found 1 ligands in 6rsa.pdb
+2025-07-01 11:09:09,044 - ProteinFeatureExtractor - INFO - Classified 73 out of 2735 SAS points (2.67%) as binding sites in 6rsa.pdb
+2025-07-01 11:09:09,051 - ProteinFeatureExtractor - INFO - Classified 100 out of 3987 SAS points (2.51%) as binding sites in 7rat.pdb
+2025-07-01 11:09:09,205 - ProteinFeatureExtractor - INFO - Exported 2735 feature rows to output_bu48/6rsa.pdb_features.csv
+2025-07-01 11:09:09,208 - ProteinFeatureExtractor - INFO - Processed 6rsa.pdb in 79.22 seconds
+2025-07-01 11:09:09,214 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:09,489 - ProteinFeatureExtractor - INFO - Exported 3987 feature rows to output_bu48/7rat.pdb_features.csv
+2025-07-01 11:09:09,494 - ProteinFeatureExtractor - INFO - Processed 7rat.pdb in 75.64 seconds
+2025-07-01 11:09:09,507 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:11,869 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ida.pdb with threshold 4.0Å
+2025-07-01 11:09:11,869 - ProteinFeatureExtractor - INFO - Found 4 ligands in 1ida.pdb
+2025-07-01 11:09:14,254 - ProteinFeatureExtractor - INFO - Classified 162 out of 5531 SAS points (2.93%) as binding sites in 1ida.pdb
+2025-07-01 11:09:14,312 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1mtw.pdb with threshold 4.0Å
+2025-07-01 11:09:14,312 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1mtw.pdb
+2025-07-01 11:09:14,769 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2tga.pdb with threshold 4.0Å
+2025-07-01 11:09:14,770 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2tga.pdb
+2025-07-01 11:09:14,964 - ProteinFeatureExtractor - INFO - Exported 5531 feature rows to output_bu48/1ida.pdb_features.csv
+2025-07-01 11:09:14,971 - ProteinFeatureExtractor - INFO - Processed 1ida.pdb in 164.07 seconds
+2025-07-01 11:09:14,993 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:15,990 - ProteinFeatureExtractor - INFO - Classified 170 out of 5359 SAS points (3.17%) as binding sites in 1mtw.pdb
+2025-07-01 11:09:16,425 - ProteinFeatureExtractor - INFO - Classified 171 out of 5314 SAS points (3.22%) as binding sites in 2tga.pdb
+2025-07-01 11:09:16,646 - ProteinFeatureExtractor - INFO - Exported 5359 feature rows to output_bu48/1mtw.pdb_features.csv
+2025-07-01 11:09:16,653 - ProteinFeatureExtractor - INFO - Processed 1mtw.pdb in 165.75 seconds
+2025-07-01 11:09:16,673 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:16,993 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3phv.pdb with threshold 4.0Å
+2025-07-01 11:09:16,993 - ProteinFeatureExtractor - INFO - Found 2 ligands in 3phv.pdb
+2025-07-01 11:09:17,096 - ProteinFeatureExtractor - INFO - Exported 5314 feature rows to output_bu48/2tga.pdb_features.csv
+2025-07-01 11:09:17,102 - ProteinFeatureExtractor - INFO - Processed 2tga.pdb in 166.20 seconds
+2025-07-01 11:09:17,122 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:17,527 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3ptb.pdb with threshold 4.0Å
+2025-07-01 11:09:17,527 - ProteinFeatureExtractor - INFO - Found 1 ligands in 3ptb.pdb
+2025-07-01 11:09:17,760 - ProteinFeatureExtractor - INFO - Classified 34 out of 5243 SAS points (0.65%) as binding sites in 3ptb.pdb
+2025-07-01 11:09:17,844 - ProteinFeatureExtractor - INFO - Classifying binding sites for 8rat.pdb with threshold 4.0Å
+2025-07-01 11:09:17,844 - ProteinFeatureExtractor - INFO - Found 1 ligands in 8rat.pdb
+2025-07-01 11:09:18,126 - ProteinFeatureExtractor - INFO - Exported 5243 feature rows to output_bu48/3ptb.pdb_features.csv
+2025-07-01 11:09:18,132 - ProteinFeatureExtractor - INFO - Processed 3ptb.pdb in 167.23 seconds
+2025-07-01 11:09:18,145 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:18,647 - ProteinFeatureExtractor - INFO - Classified 116 out of 3959 SAS points (2.93%) as binding sites in 8rat.pdb
+2025-07-01 11:09:19,102 - ProteinFeatureExtractor - INFO - Exported 3959 feature rows to output_bu48/8rat.pdb_features.csv
+2025-07-01 11:09:19,106 - ProteinFeatureExtractor - INFO - Processed 8rat.pdb in 74.02 seconds
+2025-07-01 11:09:19,120 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:20,393 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3ptn.pdb with threshold 4.0Å
+2025-07-01 11:09:20,393 - ProteinFeatureExtractor - INFO - Found 1 ligands in 3ptn.pdb
+2025-07-01 11:09:20,876 - ProteinFeatureExtractor - INFO - Classified 37 out of 5340 SAS points (0.69%) as binding sites in 3ptn.pdb
+2025-07-01 11:09:20,961 - ProteinFeatureExtractor - INFO - Classified 206 out of 5711 SAS points (3.61%) as binding sites in 3phv.pdb
+2025-07-01 11:09:21,480 - ProteinFeatureExtractor - INFO - Exported 5711 feature rows to output_bu48/3phv.pdb_features.csv
+2025-07-01 11:09:21,487 - ProteinFeatureExtractor - INFO - Processed 3phv.pdb in 170.58 seconds
+2025-07-01 11:09:21,510 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:21,561 - ProteinFeatureExtractor - INFO - Exported 5340 feature rows to output_bu48/3ptn.pdb_features.csv
+2025-07-01 11:09:21,567 - ProteinFeatureExtractor - INFO - Processed 3ptn.pdb in 170.66 seconds
+2025-07-01 11:09:21,589 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:22,277 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hsi.pdb with threshold 4.0Å
+2025-07-01 11:09:22,277 - ProteinFeatureExtractor - INFO - Found 4 ligands in 1hsi.pdb
+2025-07-01 11:09:23,597 - ProteinFeatureExtractor - INFO - Classified 250 out of 6059 SAS points (4.13%) as binding sites in 1hsi.pdb
+2025-07-01 11:09:24,014 - ProteinFeatureExtractor - INFO - Exported 6059 feature rows to output_bu48/1hsi.pdb_features.csv
+2025-07-01 11:09:24,020 - ProteinFeatureExtractor - INFO - Processed 1hsi.pdb in 173.12 seconds
+2025-07-01 11:09:24,035 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:27,563 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1chg.pdb with threshold 4.0Å
+2025-07-01 11:09:27,564 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1chg.pdb
+2025-07-01 11:09:28,220 - ProteinFeatureExtractor - INFO - Classified 83 out of 5604 SAS points (1.48%) as binding sites in 1chg.pdb
+2025-07-01 11:09:28,916 - ProteinFeatureExtractor - INFO - Exported 5604 feature rows to output_bu48/1chg.pdb_features.csv
+2025-07-01 11:09:28,923 - ProteinFeatureExtractor - INFO - Processed 1chg.pdb in 178.03 seconds
+2025-07-01 11:09:28,947 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:31,669 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1a6w.pdb with threshold 4.0Å
+2025-07-01 11:09:31,669 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1a6w.pdb
+2025-07-01 11:09:32,139 - ProteinFeatureExtractor - INFO - Classified 79 out of 5797 SAS points (1.36%) as binding sites in 1a6w.pdb
+2025-07-01 11:09:32,538 - ProteinFeatureExtractor - INFO - Exported 5797 feature rows to output_bu48/1a6w.pdb_features.csv
+2025-07-01 11:09:32,544 - ProteinFeatureExtractor - INFO - Processed 1a6w.pdb in 181.65 seconds
+2025-07-01 11:09:32,556 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:38,989 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3gch.pdb with threshold 4.0Å
+2025-07-01 11:09:38,989 - ProteinFeatureExtractor - INFO - Found 1 ligands in 3gch.pdb
+2025-07-01 11:09:39,331 - ProteinFeatureExtractor - INFO - Classified 56 out of 5812 SAS points (0.96%) as binding sites in 3gch.pdb
+2025-07-01 11:09:39,684 - ProteinFeatureExtractor - INFO - Exported 5812 feature rows to output_bu48/3gch.pdb_features.csv
+2025-07-01 11:09:39,689 - ProteinFeatureExtractor - INFO - Processed 3gch.pdb in 188.79 seconds
+2025-07-01 11:09:39,702 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:41,209 - ProteinFeatureExtractor - INFO - Classifying binding sites for 5dfr.pdb with threshold 4.0Å
+2025-07-01 11:09:41,209 - ProteinFeatureExtractor - INFO - Found 1 ligands in 5dfr.pdb
+2025-07-01 11:09:41,591 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1a6u.pdb with threshold 4.0Å
+2025-07-01 11:09:41,591 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1a6u.pdb
+2025-07-01 11:09:42,526 - ProteinFeatureExtractor - INFO - Classified 79 out of 5743 SAS points (1.38%) as binding sites in 1a6u.pdb
+2025-07-01 11:09:42,751 - ProteinFeatureExtractor - INFO - Classified 163 out of 4877 SAS points (3.34%) as binding sites in 5dfr.pdb
+2025-07-01 11:09:43,248 - ProteinFeatureExtractor - INFO - Exported 5743 feature rows to output_bu48/1a6u.pdb_features.csv
+2025-07-01 11:09:43,254 - ProteinFeatureExtractor - INFO - Processed 1a6u.pdb in 192.36 seconds
+2025-07-01 11:09:43,277 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:43,296 - ProteinFeatureExtractor - INFO - Exported 4877 feature rows to output_bu48/5dfr.pdb_features.csv
+2025-07-01 11:09:43,302 - ProteinFeatureExtractor - INFO - Processed 5dfr.pdb in 119.18 seconds
+2025-07-01 11:09:43,319 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:44,453 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1srf.pdb with threshold 4.0Å
+2025-07-01 11:09:44,453 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1srf.pdb
+2025-07-01 11:09:45,330 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1inc.pdb with threshold 4.0Å
+2025-07-01 11:09:45,330 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1inc.pdb
+2025-07-01 11:09:45,683 - ProteinFeatureExtractor - INFO - Classified 230 out of 5827 SAS points (3.95%) as binding sites in 1srf.pdb
+2025-07-01 11:09:46,030 - ProteinFeatureExtractor - INFO - Classified 97 out of 6132 SAS points (1.58%) as binding sites in 1inc.pdb
+2025-07-01 11:09:46,055 - ProteinFeatureExtractor - INFO - Exported 5827 feature rows to output_bu48/1srf.pdb_features.csv
+2025-07-01 11:09:46,061 - ProteinFeatureExtractor - INFO - Processed 1srf.pdb in 195.16 seconds
+2025-07-01 11:09:46,076 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:46,397 - ProteinFeatureExtractor - INFO - Exported 6132 feature rows to output_bu48/1inc.pdb_features.csv
+2025-07-01 11:09:46,403 - ProteinFeatureExtractor - INFO - Processed 1inc.pdb in 195.51 seconds
+2025-07-01 11:09:46,416 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:47,159 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1esa.pdb with threshold 4.0Å
+2025-07-01 11:09:47,159 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1esa.pdb
+2025-07-01 11:09:47,840 - ProteinFeatureExtractor - INFO - Classified 107 out of 6100 SAS points (1.75%) as binding sites in 1esa.pdb
+2025-07-01 11:09:48,211 - ProteinFeatureExtractor - INFO - Exported 6100 feature rows to output_bu48/1esa.pdb_features.csv
+2025-07-01 11:09:48,217 - ProteinFeatureExtractor - INFO - Processed 1esa.pdb in 197.32 seconds
+2025-07-01 11:09:48,231 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:49,663 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1pts.pdb with threshold 4.0Å
+2025-07-01 11:09:49,664 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1pts.pdb
+2025-07-01 11:09:52,145 - ProteinFeatureExtractor - INFO - Classified 224 out of 5943 SAS points (3.77%) as binding sites in 1pts.pdb
+2025-07-01 11:09:52,896 - ProteinFeatureExtractor - INFO - Exported 5943 feature rows to output_bu48/1pts.pdb_features.csv
+2025-07-01 11:09:52,903 - ProteinFeatureExtractor - INFO - Processed 1pts.pdb in 202.00 seconds
+2025-07-01 11:09:52,926 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:09:59,918 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1okm.pdb with threshold 4.0Å
+2025-07-01 11:09:59,919 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1okm.pdb
+2025-07-01 11:10:00,491 - ProteinFeatureExtractor - INFO - Classified 68 out of 6655 SAS points (1.02%) as binding sites in 1okm.pdb
+2025-07-01 11:10:00,612 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1blh.pdb with threshold 4.0Å
+2025-07-01 11:10:00,613 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1blh.pdb
+2025-07-01 11:10:00,918 - ProteinFeatureExtractor - INFO - Exported 6655 feature rows to output_bu48/1okm.pdb_features.csv
+2025-07-01 11:10:00,927 - ProteinFeatureExtractor - INFO - Processed 1okm.pdb in 210.03 seconds
+2025-07-01 11:10:00,958 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:01,068 - ProteinFeatureExtractor - INFO - Classified 89 out of 6268 SAS points (1.42%) as binding sites in 1blh.pdb
+2025-07-01 11:10:01,486 - ProteinFeatureExtractor - INFO - Exported 6268 feature rows to output_bu48/1blh.pdb_features.csv
+2025-07-01 11:10:01,492 - ProteinFeatureExtractor - INFO - Processed 1blh.pdb in 210.60 seconds
+2025-07-01 11:10:01,511 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:02,574 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2ctv.pdb with threshold 4.0Å
+2025-07-01 11:10:02,574 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2ctv.pdb
+2025-07-01 11:10:03,330 - ProteinFeatureExtractor - INFO - Classified 87 out of 6045 SAS points (1.44%) as binding sites in 2ctv.pdb
+2025-07-01 11:10:04,040 - ProteinFeatureExtractor - INFO - Exported 6045 feature rows to output_bu48/2ctv.pdb_features.csv
+2025-07-01 11:10:04,047 - ProteinFeatureExtractor - INFO - Processed 2ctv.pdb in 213.15 seconds
+2025-07-01 11:10:04,071 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:05,305 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1djb.pdb with threshold 4.0Å
+2025-07-01 11:10:05,306 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1djb.pdb
+2025-07-01 11:10:05,771 - ProteinFeatureExtractor - INFO - Classified 93 out of 6470 SAS points (1.44%) as binding sites in 1djb.pdb
+2025-07-01 11:10:06,192 - ProteinFeatureExtractor - INFO - Exported 6470 feature rows to output_bu48/1djb.pdb_features.csv
+2025-07-01 11:10:06,199 - ProteinFeatureExtractor - INFO - Processed 1djb.pdb in 215.30 seconds
+2025-07-01 11:10:06,215 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:06,327 - ProteinFeatureExtractor - INFO - Classifying binding sites for 4phv.pdb with threshold 4.0Å
+2025-07-01 11:10:06,328 - ProteinFeatureExtractor - INFO - Found 2 ligands in 4phv.pdb
+2025-07-01 11:10:07,054 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ahc.pdb with threshold 4.0Å
+2025-07-01 11:10:07,054 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ahc.pdb
+2025-07-01 11:10:07,833 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ypi.pdb with threshold 4.0Å
+2025-07-01 11:10:07,833 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ypi.pdb
+2025-07-01 11:10:07,988 - ProteinFeatureExtractor - INFO - Classified 43 out of 6474 SAS points (0.66%) as binding sites in 1ahc.pdb
+2025-07-01 11:10:08,124 - ProteinFeatureExtractor - INFO - Classified 63 out of 6543 SAS points (0.96%) as binding sites in 1ypi.pdb
+2025-07-01 11:10:08,149 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ime.pdb with threshold 4.0Å
+2025-07-01 11:10:08,149 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ime.pdb
+2025-07-01 11:10:08,587 - ProteinFeatureExtractor - INFO - Exported 6543 feature rows to output_bu48/1ypi.pdb_features.csv
+2025-07-01 11:10:08,593 - ProteinFeatureExtractor - INFO - Processed 1ypi.pdb in 217.69 seconds
+2025-07-01 11:10:08,605 - ProteinFeatureExtractor - INFO - Classifying binding sites for 5cna.pdb with threshold 4.0Å
+2025-07-01 11:10:08,605 - ProteinFeatureExtractor - INFO - Found 1 ligands in 5cna.pdb
+2025-07-01 11:10:08,607 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:08,675 - ProteinFeatureExtractor - INFO - Classified 61 out of 6845 SAS points (0.89%) as binding sites in 1ime.pdb
+2025-07-01 11:10:08,727 - ProteinFeatureExtractor - INFO - Exported 6474 feature rows to output_bu48/1ahc.pdb_features.csv
+2025-07-01 11:10:08,734 - ProteinFeatureExtractor - INFO - Processed 1ahc.pdb in 217.84 seconds
+2025-07-01 11:10:08,759 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:08,936 - ProteinFeatureExtractor - INFO - Classified 131 out of 5406 SAS points (2.42%) as binding sites in 4phv.pdb
+2025-07-01 11:10:08,996 - ProteinFeatureExtractor - INFO - Classified 88 out of 6098 SAS points (1.44%) as binding sites in 5cna.pdb
+2025-07-01 11:10:09,100 - ProteinFeatureExtractor - INFO - Exported 6845 feature rows to output_bu48/1ime.pdb_features.csv
+2025-07-01 11:10:09,107 - ProteinFeatureExtractor - INFO - Processed 1ime.pdb in 218.21 seconds
+2025-07-01 11:10:09,124 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:09,252 - ProteinFeatureExtractor - INFO - Exported 5406 feature rows to output_bu48/4phv.pdb_features.csv
+2025-07-01 11:10:09,258 - ProteinFeatureExtractor - INFO - Processed 4phv.pdb in 164.24 seconds
+2025-07-01 11:10:09,269 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:09,354 - ProteinFeatureExtractor - INFO - Exported 6098 feature rows to output_bu48/5cna.pdb_features.csv
+2025-07-01 11:10:09,360 - ProteinFeatureExtractor - INFO - Processed 5cna.pdb in 148.14 seconds
+2025-07-01 11:10:09,375 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:09,644 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1mrg.pdb with threshold 4.0Å
+2025-07-01 11:10:09,644 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1mrg.pdb
+2025-07-01 11:10:10,326 - ProteinFeatureExtractor - INFO - Classified 33 out of 4735 SAS points (0.70%) as binding sites in 1mrg.pdb
+2025-07-01 11:10:10,817 - ProteinFeatureExtractor - INFO - Exported 4735 feature rows to output_bu48/1mrg.pdb_features.csv
+2025-07-01 11:10:10,824 - ProteinFeatureExtractor - INFO - Processed 1mrg.pdb in 219.93 seconds
+2025-07-01 11:10:10,844 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:14,054 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2ypi.pdb with threshold 4.0Å
+2025-07-01 11:10:14,054 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2ypi.pdb
+2025-07-01 11:10:14,331 - ProteinFeatureExtractor - INFO - Classified 42 out of 6354 SAS points (0.66%) as binding sites in 2ypi.pdb
+2025-07-01 11:10:14,726 - ProteinFeatureExtractor - INFO - Exported 6354 feature rows to output_bu48/2ypi.pdb_features.csv
+2025-07-01 11:10:14,732 - ProteinFeatureExtractor - INFO - Processed 2ypi.pdb in 223.83 seconds
+2025-07-01 11:10:14,746 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:26,830 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1bid.pdb with threshold 4.0Å
+2025-07-01 11:10:26,830 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1bid.pdb
+2025-07-01 11:10:27,656 - ProteinFeatureExtractor - INFO - Classified 112 out of 7350 SAS points (1.52%) as binding sites in 1bid.pdb
+2025-07-01 11:10:28,114 - ProteinFeatureExtractor - INFO - Exported 7350 feature rows to output_bu48/1bid.pdb_features.csv
+2025-07-01 11:10:28,121 - ProteinFeatureExtractor - INFO - Processed 1bid.pdb in 237.23 seconds
+2025-07-01 11:10:28,140 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:30,809 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2cba.pdb with threshold 4.0Å
+2025-07-01 11:10:30,809 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2cba.pdb
+2025-07-01 11:10:31,237 - ProteinFeatureExtractor - INFO - Classified 40 out of 6658 SAS points (0.60%) as binding sites in 2cba.pdb
+2025-07-01 11:10:31,660 - ProteinFeatureExtractor - INFO - Exported 6658 feature rows to output_bu48/2cba.pdb_features.csv
+2025-07-01 11:10:31,666 - ProteinFeatureExtractor - INFO - Processed 2cba.pdb in 240.76 seconds
+2025-07-01 11:10:31,681 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:35,595 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2h4n.pdb with threshold 4.0Å
+2025-07-01 11:10:35,596 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2h4n.pdb
+2025-07-01 11:10:36,018 - ProteinFeatureExtractor - INFO - Classified 44 out of 6664 SAS points (0.66%) as binding sites in 2h4n.pdb
+2025-07-01 11:10:36,496 - ProteinFeatureExtractor - INFO - Exported 6664 feature rows to output_bu48/2h4n.pdb_features.csv
+2025-07-01 11:10:36,503 - ProteinFeatureExtractor - INFO - Processed 2h4n.pdb in 245.60 seconds
+2025-07-01 11:10:36,521 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:37,120 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1qpe.pdb with threshold 4.0Å
+2025-07-01 11:10:37,120 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1qpe.pdb
+2025-07-01 11:10:37,273 - ProteinFeatureExtractor - INFO - Classifying binding sites for 4ca2.pdb with threshold 4.0Å
+2025-07-01 11:10:37,273 - ProteinFeatureExtractor - INFO - Found 1 ligands in 4ca2.pdb
+2025-07-01 11:10:37,840 - ProteinFeatureExtractor - INFO - Classified 69 out of 6466 SAS points (1.07%) as binding sites in 4ca2.pdb
+2025-07-01 11:10:38,011 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1gca.pdb with threshold 4.0Å
+2025-07-01 11:10:38,011 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1gca.pdb
+2025-07-01 11:10:38,244 - ProteinFeatureExtractor - INFO - Exported 6466 feature rows to output_bu48/4ca2.pdb_features.csv
+2025-07-01 11:10:38,251 - ProteinFeatureExtractor - INFO - Processed 4ca2.pdb in 214.30 seconds
+2025-07-01 11:10:38,267 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:38,560 - ProteinFeatureExtractor - INFO - Classified 201 out of 7621 SAS points (2.64%) as binding sites in 1qpe.pdb
+2025-07-01 11:10:38,659 - ProteinFeatureExtractor - INFO - Classified 7 out of 5889 SAS points (0.12%) as binding sites in 1gca.pdb
+2025-07-01 11:10:39,028 - ProteinFeatureExtractor - INFO - Exported 7621 feature rows to output_bu48/1qpe.pdb_features.csv
+2025-07-01 11:10:39,031 - ProteinFeatureExtractor - INFO - Exported 5889 feature rows to output_bu48/1gca.pdb_features.csv
+2025-07-01 11:10:39,035 - ProteinFeatureExtractor - INFO - Processed 1qpe.pdb in 248.14 seconds
+2025-07-01 11:10:39,036 - ProteinFeatureExtractor - INFO - Processed 1gca.pdb in 248.14 seconds
+2025-07-01 11:10:39,050 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:39,054 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:39,263 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2ctb.pdb with threshold 4.0Å
+2025-07-01 11:10:39,263 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2ctb.pdb
+2025-07-01 11:10:39,657 - ProteinFeatureExtractor - INFO - Classified 32 out of 6925 SAS points (0.46%) as binding sites in 2ctb.pdb
+2025-07-01 11:10:40,072 - ProteinFeatureExtractor - INFO - Exported 6925 feature rows to output_bu48/2ctb.pdb_features.csv
+2025-07-01 11:10:40,079 - ProteinFeatureExtractor - INFO - Processed 2ctb.pdb in 249.18 seconds
+2025-07-01 11:10:40,096 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:40,139 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hxf.pdb with threshold 4.0Å
+2025-07-01 11:10:40,140 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1hxf.pdb
+2025-07-01 11:10:41,337 - ProteinFeatureExtractor - INFO - Classified 133 out of 7173 SAS points (1.85%) as binding sites in 1hxf.pdb
+2025-07-01 11:10:41,767 - ProteinFeatureExtractor - INFO - Exported 7173 feature rows to output_bu48/1hxf.pdb_features.csv
+2025-07-01 11:10:41,773 - ProteinFeatureExtractor - INFO - Processed 1hxf.pdb in 250.88 seconds
+2025-07-01 11:10:41,791 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:42,293 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1apu.pdb with threshold 4.0Å
+2025-07-01 11:10:42,293 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1apu.pdb
+2025-07-01 11:10:42,682 - ProteinFeatureExtractor - INFO - Classified 120 out of 7448 SAS points (1.61%) as binding sites in 1apu.pdb
+2025-07-01 11:10:43,134 - ProteinFeatureExtractor - INFO - Exported 7448 feature rows to output_bu48/1apu.pdb_features.csv
+2025-07-01 11:10:43,141 - ProteinFeatureExtractor - INFO - Processed 1apu.pdb in 252.25 seconds
+2025-07-01 11:10:43,167 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:44,861 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1npc.pdb with threshold 4.0Å
+2025-07-01 11:10:44,862 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1npc.pdb
+2025-07-01 11:10:45,517 - ProteinFeatureExtractor - INFO - Classified 113 out of 7297 SAS points (1.55%) as binding sites in 1npc.pdb
+2025-07-01 11:10:45,984 - ProteinFeatureExtractor - INFO - Exported 7297 feature rows to output_bu48/1npc.pdb_features.csv
+2025-07-01 11:10:45,991 - ProteinFeatureExtractor - INFO - Processed 1npc.pdb in 255.09 seconds
+2025-07-01 11:10:46,017 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:47,746 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1imb.pdb with threshold 4.0Å
+2025-07-01 11:10:47,746 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1imb.pdb
+2025-07-01 11:10:48,263 - ProteinFeatureExtractor - INFO - Classified 60 out of 6906 SAS points (0.87%) as binding sites in 1imb.pdb
+2025-07-01 11:10:48,687 - ProteinFeatureExtractor - INFO - Exported 6906 feature rows to output_bu48/1imb.pdb_features.csv
+2025-07-01 11:10:48,694 - ProteinFeatureExtractor - INFO - Processed 1imb.pdb in 257.80 seconds
+2025-07-01 11:10:48,712 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:49,201 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3tms.pdb with threshold 4.0Å
+2025-07-01 11:10:49,201 - ProteinFeatureExtractor - INFO - Found 2 ligands in 3tms.pdb
+2025-07-01 11:10:49,991 - ProteinFeatureExtractor - INFO - Classified 119 out of 7363 SAS points (1.62%) as binding sites in 3tms.pdb
+2025-07-01 11:10:50,428 - ProteinFeatureExtractor - INFO - Exported 7363 feature rows to output_bu48/3tms.pdb_features.csv
+2025-07-01 11:10:50,435 - ProteinFeatureExtractor - INFO - Processed 3tms.pdb in 259.53 seconds
+2025-07-01 11:10:50,453 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:53,675 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2ctc.pdb with threshold 4.0Å
+2025-07-01 11:10:53,675 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2ctc.pdb
+2025-07-01 11:10:54,057 - ProteinFeatureExtractor - INFO - Classified 23 out of 6754 SAS points (0.34%) as binding sites in 2ctc.pdb
+2025-07-01 11:10:54,470 - ProteinFeatureExtractor - INFO - Exported 6754 feature rows to output_bu48/2ctc.pdb_features.csv
+2025-07-01 11:10:54,477 - ProteinFeatureExtractor - INFO - Processed 2ctc.pdb in 263.58 seconds
+2025-07-01 11:10:54,495 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:56,255 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1l3f.pdb with threshold 4.0Å
+2025-07-01 11:10:56,255 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1l3f.pdb
+2025-07-01 11:10:56,399 - ProteinFeatureExtractor - INFO - Classified 33 out of 6971 SAS points (0.47%) as binding sites in 1l3f.pdb
+2025-07-01 11:10:56,818 - ProteinFeatureExtractor - INFO - Exported 6971 feature rows to output_bu48/1l3f.pdb_features.csv
+2025-07-01 11:10:56,826 - ProteinFeatureExtractor - INFO - Processed 1l3f.pdb in 265.93 seconds
+2025-07-01 11:10:56,848 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:10:57,950 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2tmn.pdb with threshold 4.0Å
+2025-07-01 11:10:57,950 - ProteinFeatureExtractor - INFO - Found 1 ligands in 2tmn.pdb
+2025-07-01 11:10:58,103 - ProteinFeatureExtractor - INFO - Classified 36 out of 7348 SAS points (0.49%) as binding sites in 2tmn.pdb
+2025-07-01 11:10:58,527 - ProteinFeatureExtractor - INFO - Exported 7348 feature rows to output_bu48/2tmn.pdb_features.csv
+2025-07-01 11:10:58,533 - ProteinFeatureExtractor - INFO - Processed 2tmn.pdb in 267.63 seconds
+2025-07-01 11:10:58,551 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:02,662 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ula.pdb with threshold 4.0Å
+2025-07-01 11:11:02,662 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ula.pdb
+2025-07-01 11:11:03,073 - ProteinFeatureExtractor - INFO - Classified 42 out of 7884 SAS points (0.53%) as binding sites in 1ula.pdb
+2025-07-01 11:11:03,238 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1hyt.pdb with threshold 4.0Å
+2025-07-01 11:11:03,238 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1hyt.pdb
+2025-07-01 11:11:03,536 - ProteinFeatureExtractor - INFO - Exported 7884 feature rows to output_bu48/1ula.pdb_features.csv
+2025-07-01 11:11:03,545 - ProteinFeatureExtractor - INFO - Processed 1ula.pdb in 272.64 seconds
+2025-07-01 11:11:03,570 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:03,895 - ProteinFeatureExtractor - INFO - Classified 106 out of 7286 SAS points (1.45%) as binding sites in 1hyt.pdb
+2025-07-01 11:11:04,237 - ProteinFeatureExtractor - INFO - Classifying binding sites for 3lck.pdb with threshold 4.0Å
+2025-07-01 11:11:04,237 - ProteinFeatureExtractor - INFO - Found 2 ligands in 3lck.pdb
+2025-07-01 11:11:04,324 - ProteinFeatureExtractor - INFO - Exported 7286 feature rows to output_bu48/1hyt.pdb_features.csv
+2025-07-01 11:11:04,330 - ProteinFeatureExtractor - INFO - Processed 1hyt.pdb in 273.43 seconds
+2025-07-01 11:11:04,348 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:05,457 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1fbp.pdb with threshold 4.0Å
+2025-07-01 11:11:05,457 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1fbp.pdb
+2025-07-01 11:11:05,647 - ProteinFeatureExtractor - INFO - Classified 200 out of 7763 SAS points (2.58%) as binding sites in 3lck.pdb
+2025-07-01 11:11:06,100 - ProteinFeatureExtractor - INFO - Exported 7763 feature rows to output_bu48/3lck.pdb_features.csv
+2025-07-01 11:11:06,107 - ProteinFeatureExtractor - INFO - Processed 3lck.pdb in 275.20 seconds
+2025-07-01 11:11:06,122 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:06,610 - ProteinFeatureExtractor - INFO - Classified 181 out of 6494 SAS points (2.79%) as binding sites in 1fbp.pdb
+2025-07-01 11:11:07,006 - ProteinFeatureExtractor - INFO - Exported 6494 feature rows to output_bu48/1fbp.pdb_features.csv
+2025-07-01 11:11:07,014 - ProteinFeatureExtractor - INFO - Processed 1fbp.pdb in 276.12 seconds
+2025-07-01 11:11:07,036 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:08,857 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1gcg.pdb with threshold 4.0Å
+2025-07-01 11:11:08,858 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1gcg.pdb
+2025-07-01 11:11:09,503 - ProteinFeatureExtractor - INFO - Classified 10 out of 5817 SAS points (0.17%) as binding sites in 1gcg.pdb
+2025-07-01 11:11:09,877 - ProteinFeatureExtractor - INFO - Exported 5817 feature rows to output_bu48/1gcg.pdb_features.csv
+2025-07-01 11:11:09,882 - ProteinFeatureExtractor - INFO - Processed 1gcg.pdb in 278.99 seconds
+2025-07-01 11:11:09,902 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:12,767 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1dwd.pdb with threshold 4.0Å
+2025-07-01 11:11:12,767 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1dwd.pdb
+2025-07-01 11:11:14,071 - ProteinFeatureExtractor - INFO - Classified 127 out of 7713 SAS points (1.65%) as binding sites in 1dwd.pdb
+2025-07-01 11:11:14,525 - ProteinFeatureExtractor - INFO - Exported 7713 feature rows to output_bu48/1dwd.pdb_features.csv
+2025-07-01 11:11:14,533 - ProteinFeatureExtractor - INFO - Processed 1dwd.pdb in 283.64 seconds
+2025-07-01 11:11:14,555 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:16,011 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1pso.pdb with threshold 4.0Å
+2025-07-01 11:11:16,011 - ProteinFeatureExtractor - INFO - Found 3 ligands in 1pso.pdb
+2025-07-01 11:11:16,513 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ulb.pdb with threshold 4.0Å
+2025-07-01 11:11:16,513 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1ulb.pdb
+2025-07-01 11:11:16,922 - ProteinFeatureExtractor - INFO - Classified 35 out of 7779 SAS points (0.45%) as binding sites in 1ulb.pdb
+2025-07-01 11:11:17,047 - ProteinFeatureExtractor - INFO - Classified 152 out of 7647 SAS points (1.99%) as binding sites in 1pso.pdb
+2025-07-01 11:11:17,366 - ProteinFeatureExtractor - INFO - Exported 7779 feature rows to output_bu48/1ulb.pdb_features.csv
+2025-07-01 11:11:17,373 - ProteinFeatureExtractor - INFO - Processed 1ulb.pdb in 286.47 seconds
+2025-07-01 11:11:17,398 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:17,486 - ProteinFeatureExtractor - INFO - Exported 7647 feature rows to output_bu48/1pso.pdb_features.csv
+2025-07-01 11:11:17,494 - ProteinFeatureExtractor - INFO - Processed 1pso.pdb in 286.60 seconds
+2025-07-01 11:11:17,518 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:18,911 - ProteinFeatureExtractor - INFO - Classifying binding sites for 7cpa.pdb with threshold 4.0Å
+2025-07-01 11:11:18,911 - ProteinFeatureExtractor - INFO - Found 1 ligands in 7cpa.pdb
+2025-07-01 11:11:19,386 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1psn.pdb with threshold 4.0Å
+2025-07-01 11:11:19,386 - ProteinFeatureExtractor - INFO - Found 3 ligands in 1psn.pdb
+2025-07-01 11:11:20,200 - ProteinFeatureExtractor - INFO - Classified 122 out of 6803 SAS points (1.79%) as binding sites in 7cpa.pdb
+2025-07-01 11:11:20,440 - ProteinFeatureExtractor - INFO - Classified 205 out of 7802 SAS points (2.63%) as binding sites in 1psn.pdb
+2025-07-01 11:11:20,581 - ProteinFeatureExtractor - INFO - Exported 6803 feature rows to output_bu48/7cpa.pdb_features.csv
+2025-07-01 11:11:20,588 - ProteinFeatureExtractor - INFO - Processed 7cpa.pdb in 207.53 seconds
+2025-07-01 11:11:20,604 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:20,742 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1rne.pdb with threshold 4.0Å
+2025-07-01 11:11:20,742 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1rne.pdb
+2025-07-01 11:11:20,881 - ProteinFeatureExtractor - INFO - Exported 7802 feature rows to output_bu48/1psn.pdb_features.csv
+2025-07-01 11:11:20,888 - ProteinFeatureExtractor - INFO - Processed 1psn.pdb in 289.99 seconds
+2025-07-01 11:11:20,904 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:22,968 - ProteinFeatureExtractor - INFO - Classified 272 out of 7750 SAS points (3.51%) as binding sites in 1rne.pdb
+2025-07-01 11:11:23,393 - ProteinFeatureExtractor - INFO - Exported 7750 feature rows to output_bu48/1rne.pdb_features.csv
+2025-07-01 11:11:23,400 - ProteinFeatureExtractor - INFO - Processed 1rne.pdb in 292.50 seconds
+2025-07-01 11:11:23,416 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:29,723 - ProteinFeatureExtractor - INFO - Classifying binding sites for 2fbp.pdb with threshold 4.0Å
+2025-07-01 11:11:29,724 - ProteinFeatureExtractor - INFO - Found 2 ligands in 2fbp.pdb
+2025-07-01 11:11:30,890 - ProteinFeatureExtractor - INFO - Classified 182 out of 6715 SAS points (2.71%) as binding sites in 2fbp.pdb
+2025-07-01 11:11:31,292 - ProteinFeatureExtractor - INFO - Exported 6715 feature rows to output_bu48/2fbp.pdb_features.csv
+2025-07-01 11:11:31,298 - ProteinFeatureExtractor - INFO - Processed 2fbp.pdb in 300.40 seconds
+2025-07-01 11:11:31,320 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:45,146 - ProteinFeatureExtractor - INFO - Classifying binding sites for 5cpa.pdb with threshold 4.0Å
+2025-07-01 11:11:45,146 - ProteinFeatureExtractor - INFO - Found 1 ligands in 5cpa.pdb
+2025-07-01 11:11:46,397 - ProteinFeatureExtractor - INFO - Classified 132 out of 7022 SAS points (1.88%) as binding sites in 5cpa.pdb
+2025-07-01 11:11:46,647 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1cdo.pdb with threshold 4.0Å
+2025-07-01 11:11:46,647 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1cdo.pdb
+2025-07-01 11:11:46,764 - ProteinFeatureExtractor - INFO - Exported 7022 feature rows to output_bu48/5cpa.pdb_features.csv
+2025-07-01 11:11:46,772 - ProteinFeatureExtractor - INFO - Processed 5cpa.pdb in 243.42 seconds
+2025-07-01 11:11:46,787 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:48,356 - ProteinFeatureExtractor - INFO - Classified 123 out of 8939 SAS points (1.38%) as binding sites in 1cdo.pdb
+2025-07-01 11:11:48,843 - ProteinFeatureExtractor - INFO - Exported 8939 feature rows to output_bu48/1cdo.pdb_features.csv
+2025-07-01 11:11:48,853 - ProteinFeatureExtractor - INFO - Processed 1cdo.pdb in 317.96 seconds
+2025-07-01 11:11:48,878 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:11:55,210 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1nna.pdb with threshold 4.0Å
+2025-07-01 11:11:55,210 - ProteinFeatureExtractor - INFO - Found 15 ligands in 1nna.pdb
+2025-07-01 11:12:05,583 - ProteinFeatureExtractor - INFO - Classified 704 out of 6632 SAS points (10.62%) as binding sites in 1nna.pdb
+2025-07-01 11:12:05,936 - ProteinFeatureExtractor - INFO - Exported 6632 feature rows to output_bu48/1nna.pdb_features.csv
+2025-07-01 11:12:05,943 - ProteinFeatureExtractor - INFO - Processed 1nna.pdb in 335.04 seconds
+2025-07-01 11:12:05,959 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:14,543 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1bbs.pdb with threshold 4.0Å
+2025-07-01 11:12:14,543 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1bbs.pdb
+2025-07-01 11:12:17,045 - ProteinFeatureExtractor - INFO - Classified 275 out of 7960 SAS points (3.45%) as binding sites in 1bbs.pdb
+2025-07-01 11:12:17,469 - ProteinFeatureExtractor - INFO - Exported 7960 feature rows to output_bu48/1bbs.pdb_features.csv
+2025-07-01 11:12:17,476 - ProteinFeatureExtractor - INFO - Processed 1bbs.pdb in 346.58 seconds
+2025-07-01 11:12:17,494 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:18,733 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1ivd.pdb with threshold 4.0Å
+2025-07-01 11:12:18,733 - ProteinFeatureExtractor - INFO - Found 15 ligands in 1ivd.pdb
+2025-07-01 11:12:28,595 - ProteinFeatureExtractor - INFO - Classified 732 out of 6590 SAS points (11.11%) as binding sites in 1ivd.pdb
+2025-07-01 11:12:28,939 - ProteinFeatureExtractor - INFO - Exported 6590 feature rows to output_bu48/1ivd.pdb_features.csv
+2025-07-01 11:12:28,945 - ProteinFeatureExtractor - INFO - Processed 1ivd.pdb in 358.05 seconds
+2025-07-01 11:12:28,960 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:32,957 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1phc.pdb with threshold 4.0Å
+2025-07-01 11:12:32,957 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1phc.pdb
+2025-07-01 11:12:34,936 - ProteinFeatureExtractor - INFO - Classified 24 out of 9351 SAS points (0.26%) as binding sites in 1phc.pdb
+2025-07-01 11:12:35,400 - ProteinFeatureExtractor - INFO - Exported 9351 feature rows to output_bu48/1phc.pdb_features.csv
+2025-07-01 11:12:35,409 - ProteinFeatureExtractor - INFO - Processed 1phc.pdb in 364.51 seconds
+2025-07-01 11:12:35,431 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:42,485 - ProteinFeatureExtractor - INFO - Classifying binding sites for 8adh.pdb with threshold 4.0Å
+2025-07-01 11:12:42,485 - ProteinFeatureExtractor - INFO - Found 1 ligands in 8adh.pdb
+2025-07-01 11:12:43,949 - ProteinFeatureExtractor - INFO - Classified 151 out of 8717 SAS points (1.73%) as binding sites in 8adh.pdb
+2025-07-01 11:12:44,359 - ProteinFeatureExtractor - INFO - Exported 8717 feature rows to output_bu48/8adh.pdb_features.csv
+2025-07-01 11:12:44,367 - ProteinFeatureExtractor - INFO - Processed 8adh.pdb in 286.23 seconds
+2025-07-01 11:12:44,387 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:45,860 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1pdy.pdb with threshold 4.0Å
+2025-07-01 11:12:45,860 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1pdy.pdb
+2025-07-01 11:12:46,196 - ProteinFeatureExtractor - INFO - Classified 56 out of 9207 SAS points (0.61%) as binding sites in 1pdy.pdb
+2025-07-01 11:12:46,648 - ProteinFeatureExtractor - INFO - Exported 9207 feature rows to output_bu48/1pdy.pdb_features.csv
+2025-07-01 11:12:46,657 - ProteinFeatureExtractor - INFO - Processed 1pdy.pdb in 375.76 seconds
+2025-07-01 11:12:46,679 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:12:52,908 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1pdz.pdb with threshold 4.0Å
+2025-07-01 11:12:52,908 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1pdz.pdb
+2025-07-01 11:12:53,255 - ProteinFeatureExtractor - INFO - Classified 61 out of 9349 SAS points (0.65%) as binding sites in 1pdz.pdb
+2025-07-01 11:12:53,730 - ProteinFeatureExtractor - INFO - Exported 9349 feature rows to output_bu48/1pdz.pdb_features.csv
+2025-07-01 11:12:53,738 - ProteinFeatureExtractor - INFO - Processed 1pdz.pdb in 382.84 seconds
+2025-07-01 11:12:53,764 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:13:00,585 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1phd.pdb with threshold 4.0Å
+2025-07-01 11:13:00,585 - ProteinFeatureExtractor - INFO - Found 2 ligands in 1phd.pdb
+2025-07-01 11:13:02,495 - ProteinFeatureExtractor - INFO - Classified 23 out of 9391 SAS points (0.24%) as binding sites in 1phd.pdb
+2025-07-01 11:13:02,926 - ProteinFeatureExtractor - INFO - Exported 9391 feature rows to output_bu48/1phd.pdb_features.csv
+2025-07-01 11:13:02,934 - ProteinFeatureExtractor - INFO - Processed 1phd.pdb in 392.04 seconds
+2025-07-01 11:13:02,956 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:13:33,377 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1igj.pdb with threshold 4.0Å
+2025-07-01 11:13:33,378 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1igj.pdb
+2025-07-01 11:13:34,765 - ProteinFeatureExtractor - INFO - Classified 157 out of 11045 SAS points (1.42%) as binding sites in 1igj.pdb
+2025-07-01 11:13:35,280 - ProteinFeatureExtractor - INFO - Exported 11045 feature rows to output_bu48/1igj.pdb_features.csv
+2025-07-01 11:13:35,290 - ProteinFeatureExtractor - INFO - Processed 1igj.pdb in 424.39 seconds
+2025-07-01 11:13:35,323 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:13:55,446 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1a4j.pdb with threshold 4.0Å
+2025-07-01 11:13:55,446 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1a4j.pdb
+2025-07-01 11:13:57,081 - ProteinFeatureExtractor - INFO - Classified 166 out of 11736 SAS points (1.41%) as binding sites in 1a4j.pdb
+2025-07-01 11:13:57,626 - ProteinFeatureExtractor - INFO - Exported 11736 feature rows to output_bu48/1a4j.pdb_features.csv
+2025-07-01 11:13:57,637 - ProteinFeatureExtractor - INFO - Processed 1a4j.pdb in 446.75 seconds
+2025-07-01 11:13:57,663 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:14:10,973 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1byb.pdb with threshold 4.0Å
+2025-07-01 11:14:10,973 - ProteinFeatureExtractor - INFO - Found 4 ligands in 1byb.pdb
+2025-07-01 11:14:12,694 - ProteinFeatureExtractor - INFO - Classified 75 out of 10255 SAS points (0.73%) as binding sites in 1byb.pdb
+2025-07-01 11:14:13,195 - ProteinFeatureExtractor - INFO - Exported 10255 feature rows to output_bu48/1byb.pdb_features.csv
+2025-07-01 11:14:13,205 - ProteinFeatureExtractor - INFO - Processed 1byb.pdb in 462.31 seconds
+2025-07-01 11:14:13,239 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:14:14,901 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1bya.pdb with threshold 4.0Å
+2025-07-01 11:14:14,901 - ProteinFeatureExtractor - INFO - Found 4 ligands in 1bya.pdb
+2025-07-01 11:14:16,934 - ProteinFeatureExtractor - INFO - Classified 142 out of 10601 SAS points (1.34%) as binding sites in 1bya.pdb
+2025-07-01 11:14:17,446 - ProteinFeatureExtractor - INFO - Exported 10601 feature rows to output_bu48/1bya.pdb_features.csv
+2025-07-01 11:14:17,456 - ProteinFeatureExtractor - INFO - Processed 1bya.pdb in 466.56 seconds
+2025-07-01 11:14:17,490 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:14:17,952 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1acj.pdb with threshold 4.0Å
+2025-07-01 11:14:17,952 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1acj.pdb
+2025-07-01 11:14:18,510 - ProteinFeatureExtractor - INFO - Classified 16 out of 10587 SAS points (0.15%) as binding sites in 1acj.pdb
+2025-07-01 11:14:18,967 - ProteinFeatureExtractor - INFO - Exported 10587 feature rows to output_bu48/1acj.pdb_features.csv
+2025-07-01 11:14:18,976 - ProteinFeatureExtractor - INFO - Processed 1acj.pdb in 468.08 seconds
+2025-07-01 11:14:19,000 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:14:56,492 - ProteinFeatureExtractor - INFO - Classifying binding sites for 1qif.pdb with threshold 4.0Å
+2025-07-01 11:14:56,492 - ProteinFeatureExtractor - INFO - Found 1 ligands in 1qif.pdb
+2025-07-01 11:14:57,092 - ProteinFeatureExtractor - INFO - Classified 32 out of 11584 SAS points (0.28%) as binding sites in 1qif.pdb
+2025-07-01 11:14:57,590 - ProteinFeatureExtractor - INFO - Exported 11584 feature rows to output_bu48/1qif.pdb_features.csv
+2025-07-01 11:14:57,600 - ProteinFeatureExtractor - INFO - Processed 1qif.pdb in 506.70 seconds
+2025-07-01 11:14:57,626 - ProteinFeatureExtractor - INFO - Successfully processed a protein
+2025-07-01 11:15:20,312 - ProteinFeatureExtractor - INFO - Combined 590346 rows into output_bu48/vectorsTrain.csv
+2025-07-01 11:15:20,340 - ProteinFeatureExtractor - INFO - Feature extraction complete. Combined features saved to output_bu48/vectorsTrain.csv
