@@ -1,5 +1,7 @@
 # Ignore the folder output
-output/
+output_old/
+output_chen11/
+output_bu48/
 
 
 # But not these files and folders...
