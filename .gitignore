@@ -2,7 +2,7 @@
 output_old/
 output_chen11/
 output_bu48/
-
+wandb/
 
 # But not these files and folders...
 !p2rank/
