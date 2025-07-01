@@ -25,12 +25,18 @@ def main(cfg_path):
 
     feature_path = (base / cfg["features_file"]).resolve()
     data_path = (base / cfg["train_csv"]).resolve()
+    test_path = (base / cfg.get("test_csv", "")).resolve() if cfg.get("test_csv") else None
 
     feature_order = load_feature_order(feature_path)
 
     data = pd.read_csv(data_path)
     X = data[feature_order]
     y = data["class"].astype(int)
+
+    test_data = None
+    if test_path and test_path.exists():
+        test_df = pd.read_csv(test_path)
+        test_data = (test_df[feature_order], test_df["class"].astype(int))
 
     X_train, X_val, y_train, y_val = stratified_split(
         X, y, test_size=0.2, random_state=cfg.get("seed", 42)
@@ -72,6 +78,26 @@ def main(cfg_path):
             print(f"{k}: {v}")
 
     print("Classification Report:\n", classification_report(y_val, y_pred))
+
+    if test_data is not None:
+        X_test, y_test = test_data
+        test_pred = model.predict(X_test)
+        test_prob = model.predict_proba(X_test)[:, 1]
+        test_metrics = compute_metrics(y_test, test_pred, test_prob)
+        wandb.log({f"test_{k}": v for k, v in test_metrics.items() if k != "confusion_matrix"})
+        wandb.log({"test_confusion_matrix": wandb.plot.confusion_matrix(
+            probs=None,
+            y_true=y_test.tolist(),
+            preds=test_pred.tolist(),
+            class_names=["0", "1"],
+        )})
+        print("Test Metrics:")
+        for k, v in test_metrics.items():
+            if k == "confusion_matrix":
+                print(f"{k}:\n{v}")
+            else:
+                print(f"{k}: {v}")
+        print("Test Classification Report:\n", classification_report(y_test, test_pred))
 
     wandb.finish()
 
