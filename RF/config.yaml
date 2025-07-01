@@ -1,0 +1,11 @@
+# Default configuration mirroring P2Rank params.groovy
+rf_trees: 100  # number of trees
+rf_depth: 0    # 0 means unlimited depth
+rf_features: 0 # 0 means sqrt
+rf_threads: 0  # 0 means use all available
+rf_bagsize: 100 # percentage of samples for each tree
+seed: 42
+train_csv: ../out_train/vectorsTrain.csv
+test_csv: ../out_test/vectorsTest.csv
+features_file: ../p2rank/distro/models/default/features.txt
+
