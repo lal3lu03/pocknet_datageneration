@@ -54,7 +54,7 @@ def main(cfg_path, run_dummy=False):
     if cfg.get("rf_bagsize", 100) != 100:
         rf_params["max_samples"] = cfg["rf_bagsize"] / 100.0
 
-    wandb.init(project="p2rank_rf", config=rf_params, reinit=True, mode="offline")
+    wandb.init(project="p2rank_rf", config=rf_params, reinit=True, mode="online")
 
     model = RandomForestClassifier(**rf_params)
     model.fit(X_train, y_train)
