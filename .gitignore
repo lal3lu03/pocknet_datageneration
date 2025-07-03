@@ -2,6 +2,9 @@
 output_old/
 output_chen11/
 output_bu48/
+wandb/
+output_holo4k/
+output_train/
 
 
 # But not these files and folders...
