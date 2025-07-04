@@ -44,9 +44,10 @@ def main(cfg_path, run_dummy=False):
     )
 
     rf_params = {
-        "n_estimators": cfg.get("rf_trees", 100),
+        "n_estimators": cfg.get("rf_trees", 200),
         "max_depth": None if cfg.get("rf_depth", 0) == 0 else cfg.get("rf_depth"),
-        "max_features": "sqrt" if cfg.get("rf_features", 0) == 0 else cfg.get("rf_features"),
+        "oob_score": True,
+        "max_features": 6 if cfg.get("rf_features", 0) == 0 else cfg.get("rf_features"),
         "n_jobs": -1 if cfg.get("rf_threads", 0) == 0 else cfg.get("rf_threads"),
         "random_state": cfg.get("seed", 42),
         "bootstrap": True,

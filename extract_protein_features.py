@@ -1216,6 +1216,53 @@ def parse_dataset_file(dataset_path):
     return pdb_paths
 
 
+def is_feature_file_valid(file_path, required_cols=None):
+    """Check if a feature CSV file is valid and not corrupted.
+
+    The function attempts to read a small portion of the file and verify that
+    essential columns are present. If the file cannot be read or required
+    columns are missing, it is considered invalid.
+
+    Args:
+        file_path (str): Path to the feature file.
+        required_cols (list, optional): Columns that must be present in the
+            file. Defaults to a minimal set of metadata columns.
+
+    Returns:
+        bool: True if the file appears valid, False otherwise.
+    """
+
+    if required_cols is None:
+        required_cols = [
+            "file_name",
+            "x",
+            "y",
+            "z",
+            "chain_id",
+            "residue_number",
+            "residue_name",
+            "class",
+        ]
+
+    try:
+        if os.path.getsize(file_path) == 0:
+            logger.warning(f"Feature file {file_path} is empty")
+            return False
+
+        df = pd.read_csv(file_path, nrows=1)
+        for col in required_cols:
+            if col not in df.columns:
+                logger.warning(
+                    f"Feature file {file_path} is missing required column '{col}'"
+                )
+                return False
+
+        return True
+    except Exception as e:
+        logger.warning(f"Failed to read feature file {file_path}: {e}")
+        return False
+
+
 def process_protein(pdb_path, output_dir):
     """Process a single protein and extract features."""
     try:
@@ -1289,6 +1336,9 @@ def combine_features(output_dir):
     # Read and combine all CSVs
     dfs = []
     for file_path in feature_files:
+        if not is_feature_file_valid(file_path):
+            logger.warning(f"Skipping invalid feature file: {file_path}")
+            continue
         try:
             df = pd.read_csv(file_path)
             dfs.append(df)
@@ -1423,12 +1473,19 @@ def main():
         for pdb_path in pdb_paths:
             protein_name = os.path.basename(pdb_path)
             output_path = os.path.join(args.output_dir, f"{protein_name}_features.csv")
-            if not os.path.exists(output_path):
-                filtered_paths.append(pdb_path)
-            else:
-                logger.info(f"Skipping already processed protein: {protein_name}")
-        
-        logger.info(f"Processing {len(filtered_paths)} out of {len(pdb_paths)} proteins")
+            if os.path.exists(output_path):
+                if is_feature_file_valid(output_path):
+                    logger.info(f"Skipping already processed protein: {protein_name}")
+                    continue
+                else:
+                    logger.warning(
+                        f"Existing feature file for {protein_name} is invalid. Re-processing."
+                    )
+            filtered_paths.append(pdb_path)
+
+        logger.info(
+            f"Processing {len(filtered_paths)} out of {len(pdb_paths)} proteins"
+        )
         pdb_paths = filtered_paths
     
     # Process proteins in parallel
