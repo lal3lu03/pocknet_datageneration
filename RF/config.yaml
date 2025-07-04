@@ -5,6 +5,7 @@ rf_features: 0
 rf_threads: 0  # 0 means use all available
 rf_bagsize: 100 # percentage of samples for each tree
 seed: 1234567
-train_csv: ../output_train/vectorsTrain.csv
-test_csv: ../output_holo4k/1a0f.pdb_features.csv
+train_csv: ../out_train/vectorsTrain.csv
+finetune_csv: ../out_finetune/vectorsTrain.csv
+test_csv: ../out_test/vectorsTest.csv
 features_file: ../p2rank/distro/models/default/features.txt

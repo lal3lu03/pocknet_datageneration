@@ -26,6 +26,7 @@ def main(cfg_path, run_dummy=False):
 
     feature_path = (base / cfg["features_file"]).resolve()
     data_path = (base / cfg["train_csv"]).resolve()
+    finetune_path = (base / cfg.get("finetune_csv", "")).resolve() if cfg.get("finetune_csv") else None
     test_path = (base / cfg.get("test_csv", "")).resolve() if cfg.get("test_csv") else None
 
     feature_order = load_feature_order(feature_path)
@@ -33,6 +34,11 @@ def main(cfg_path, run_dummy=False):
     data = pd.read_csv(data_path)
     X = data[feature_order]
     y = data["class"].astype(int)
+
+    finetune_data = None
+    if finetune_path and finetune_path.exists():
+        finetune_df = pd.read_csv(finetune_path)
+        finetune_data = (finetune_df[feature_order], finetune_df["class"].astype(int))
 
     test_data = None
     if test_path and test_path.exists():
@@ -55,10 +61,15 @@ def main(cfg_path, run_dummy=False):
     if cfg.get("rf_bagsize", 100) != 100:
         rf_params["max_samples"] = cfg["rf_bagsize"] / 100.0
 
-    wandb.init(project="p2rank_rf", config=rf_params, reinit=True, mode="online")
+    wandb.init(project="p2rank_rf", config=rf_params, reinit=True, mode="disabled")
 
-    model = RandomForestClassifier(**rf_params)
+    model = RandomForestClassifier(**rf_params, warm_start=True)
     model.fit(X_train, y_train)
+
+    if finetune_data is not None:
+        X_fine, y_fine = finetune_data
+        model.set_params(n_estimators=model.n_estimators + rf_params["n_estimators"])
+        model.fit(X_fine, y_fine)
 
     y_pred = model.predict(X_val)
     y_prob = model.predict_proba(X_val)[:, 1]
