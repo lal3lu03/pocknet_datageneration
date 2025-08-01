@@ -1,0 +1,57 @@
+
+TABNET TRAINING SUMMARY REPORT
+===============================
+
+Dataset Information:
+- Training samples: 4,775,390
+- Validation samples: 1,198,250
+- Test samples: 47,266,486
+- Number of features: 35
+- Training files: 630
+- Validation files: 158
+
+Model Configuration:
+- Model: TabNet Classifier
+- Training epochs: 10
+- Batch size: 8192
+- Device: cuda
+- Training time: 1203.70 seconds
+
+Performance Metrics:
+==================
+
+TRAINING SET:
+- IoU (Intersection over Union): 0.0325
+- F1-Score: 0.0630
+- Precision: 0.6381
+- Recall: 0.0331
+- Accuracy: 0.9765
+- ROC-AUC: 0.8472
+
+VALIDATION SET:
+- IoU (Intersection over Union): 0.0276
+- F1-Score: 0.0537
+- Precision: 0.5881
+- Recall: 0.0281
+- Accuracy: 0.9725
+- ROC-AUC: 0.8242
+
+TEST SET:
+- IoU (Intersection over Union): 0.0256
+- F1-Score: 0.0500
+- Precision: 0.4174
+- Recall: 0.0266
+- Accuracy: 0.9814
+- ROC-AUC: 0.7779
+
+Key Observations:
+================
+- Train-Validation IoU difference: 0.0049
+- Validation-Test IoU difference: 0.0019
+- Best performing metric: IoU = 0.0325
+
+Files Generated:
+===============
+- Model file: tabnet_model.zip
+- Results plot: tabnet_comprehensive_results.png
+- This summary: tabnet_summary_report.txt
